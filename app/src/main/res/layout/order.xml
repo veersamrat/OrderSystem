@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:padding="0dp"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="com.giao.OrderSystem.MainActivity">
+    tools:context="com.giao.OrderSystem.Order">
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
@@ -25,7 +25,7 @@
                 android:paddingTop="@dimen/activity_horizontal_margin"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:textAlignment="center"
-                android:text="order"
+                android:text="Order"
                 android:textStyle="bold"
                 android:textSize="32dp"
                 android:textColor="#ffffff"
@@ -45,7 +45,9 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:id="@+id/spinner"
+                        android:layout_marginTop="10dp"
                         android:layout_marginBottom="25dp"
+                        android:background="#ffffff"
                         android:layout_weight="5"/>
 
 
@@ -53,25 +55,38 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:id="@+id/listView"
-                        android:layout_weight="95"/>
+                        android:background="#ffffff"
+                        android:layout_weight="90"/>
+            <TableLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp"
+                android:layout_weight="5">
+                <TableRow>
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:background="#FFC61717"
 
-
-                    <Button
-                        android:layout_width="match_parent"
-                        android:layout_height="50dp"
-                        android:background="#FFC61717"
-                        android:textColor="#ffffff"
-                        android:layout_marginTop="50dp"
-                        android:layout_marginLeft="50dp"
-                        android:layout_marginRight="50dp"
-                        android:layout_marginBottom="50dp"
-                        android:textSize="40dp"
-                        android:text="Order"
-                        android:id="@+id/orderButton"
-                        android:layout_weight="5"/>
-
+                    android:textColor="#ffffff"
+                    android:textSize="40sp"
+                    android:text="Send"
+                    android:id="@+id/sendButton"
+                    android:layout_weight="5"/>
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginLeft="5dp"
+                    android:background="#FFC61717"
+                    android:textColor="#ffffff"
+                    android:textSize="40sp"
+                    android:text="Home"
+                    android:id="@+id/homeButton"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_weight="5" />
+                </TableRow>
+            </TableLayout>
         </LinearLayout>
-
     </LinearLayout>
-
 </RelativeLayout>

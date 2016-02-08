@@ -1,22 +1,26 @@
 package com.giao.ordersystem;
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.R.*;
 import android.widget.Button;
+import android.widget.Toast;
 
 public class MainActivity extends Activity{
 
     private Button menuButton;
     private Button orderButton;
     private Button tableButton;
+    private Button settingButton;
     private Button exitButton;
+
     private MainActivity_Event event;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
-        event=new MainActivity_Event();
+        event=new MainActivity_Event(getApplicationContext());
         Init_Control();
     }
     protected void Init_Control()
@@ -43,6 +47,13 @@ public class MainActivity extends Activity{
             @Override
             public void onClick(View v) {
                 event.tableButton_Click();
+            }
+        });
+        settingButton=(Button)findViewById(R.id.settingButton);
+        settingButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                event.settingButton_Click();
             }
         });
         //Exit Button
