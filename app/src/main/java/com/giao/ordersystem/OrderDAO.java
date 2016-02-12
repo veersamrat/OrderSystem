@@ -28,6 +28,14 @@ public class OrderDAO{
     public void setOrderID(int orderID){this.orderID=orderID;}
     public int getTableID(){return this.tableID;}
     public void setTableID(int tableID){this.tableID=tableID;}
+    public String getOrderDate (){return this.orderDate;}
+    public void setOrderDate(String orderDate){this.orderDate=orderDate;}
+    public int getNumberOfCustomer(){return this.numberOfCustomer;}
+    public void setNumberOfCustomer(int numberOfCustomer){this.numberOfCustomer=numberOfCustomer;}
+    public String getOrderNote(){return this.orderNote;}
+    public void setOrderNote(String orderNote){this.orderNote=orderNote;}
+    public ArrayList<OrderDetailsDAO> getOrderDetails(){return this.orderDetails;}
+    public void setOrderDetails(ArrayList<OrderDetailsDAO> orderDetails){this.getOrderDetails().addAll(orderDetails);}
 
 
 }

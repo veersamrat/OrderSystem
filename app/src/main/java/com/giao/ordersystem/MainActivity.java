@@ -14,16 +14,15 @@ public class MainActivity extends Activity{
     private Button tableButton;
     private Button settingButton;
     private Button exitButton;
-
     private MainActivity_Event event;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
         event=new MainActivity_Event(getApplicationContext());
-        Init_Control();
+        Init();
     }
-    protected void Init_Control()
+    protected void Init()
     {
         //Order Button
         orderButton=(Button)findViewById(R.id.orderButton);

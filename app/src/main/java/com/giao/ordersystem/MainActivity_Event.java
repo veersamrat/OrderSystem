@@ -28,7 +28,6 @@ public class MainActivity_Event extends Activity {
         Intent orderIntent = new Intent("com.giao.ordersystem.Order");
         orderIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         context.startActivity(orderIntent);
-
      //   finish();
     }
 

@@ -19,7 +19,6 @@
             android:layout_height="wrap_content"
             android:layout_weight="5"
             android:background="#3f51B5">
-
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -40,53 +39,57 @@
             android:layout_marginLeft="25dp"
             android:layout_marginRight="25dp"
             android:gravity="center_horizontal"
-            android:weightSum="95">
-            <LinearLayout
-                android:orientation="vertical"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="40"
-                android:layout_marginLeft="25dp"
-                android:layout_marginRight="25dp"
-                android:gravity="center_horizontal">
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:text="Table"
-                    android:background="#C0C0C0"
-                    android:id="@+id/textView2"
-                    android:layout_marginTop="10dp" />
-                <ListView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="#ffffff"
-                android:id="@+id/listView"/> ></LinearLayout>
+            android:weightSum="100">
             <LinearLayout
                 android:orientation="vertical"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginLeft="25dp"
                 android:layout_marginRight="25dp"
-                android:gravity="center_horizontal"
-                android:layout_weight="40">
-
-                <TextView
+                android:layout_weight="45"
+                android:weightSum="100">
+                <LinearLayout
+                    android:orientation="horizontal"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:text="Food Category"
+                    android:layout_gravity="left"
                     android:background="#C0C0C0"
-                    android:id="@+id/textView3"
-                    android:layout_marginTop="10dp" />
+                    android:layout_weight="5"
+                    android:weightSum="100">
 
-                <ListView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="#ffffff"
-                android:id="@+id/listView2"
-                />
+
+                        <EditText
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:id="@+id/tableNameEditText"
+                            android:paddingLeft="5dp"
+                            android:paddingRight="5dp"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginBottom="5dp"
+                            android:background="#ffffff"
+                            android:hint="Table name..."
+                            android:layout_weight="95"/>
+
+                        <Button
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:text="Add"
+                            android:id="@+id/addTableButton"
+                            android:layout_weight="5"/>
+                 </LinearLayout>
+
+                <ScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/scrollView"
+                    android:layout_weight="95">
+                    <ListView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#ffffff"
+                    android:id="@+id/tableListView"
+                    />
+                </ScrollView>
 
             </LinearLayout>
             <LinearLayout
@@ -95,12 +98,60 @@
                 android:layout_height="match_parent"
                 android:layout_marginLeft="25dp"
                 android:layout_marginRight="25dp"
+                android:layout_weight="45"
+                android:weightSum="100">
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left"
+                    android:background="#C0C0C0"
+                    android:layout_weight="5"
+                    android:weightSum="100">
+
+                        <EditText
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:id="@+id/categoryEditText"
+                            android:paddingLeft="5dp"
+                            android:paddingRight="5dp"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginBottom="5dp"
+                            android:background="#ffffff"
+                            android:hint="Food category..."
+                            android:layout_weight="95"/>
+
+                        <Button
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:text="Add"
+                            android:id="@+id/addCategoryButton"
+                            android:layout_weight="5"/>
+                   </LinearLayout>
+                <ScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/scrollView1"
+                    android:layout_weight="95">
+                <ListView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#ffffff"
+                android:id="@+id/categoryListView"/>
+                </ScrollView>
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="25dp"
+                android:layout_marginRight="25dp"
                 android:gravity="center_horizontal"
-                android:layout_weight="15">
+                android:layout_weight="10">
             <TableLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="5dp"
                 android:layout_marginBottom="20dp">
                 <TableRow>
                     <Button
