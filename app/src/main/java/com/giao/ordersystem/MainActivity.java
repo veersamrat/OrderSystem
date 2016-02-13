@@ -21,6 +21,7 @@ public class MainActivity extends Activity{
         setContentView(R.layout.main);
         event=new MainActivity_Event(getApplicationContext());
         Init();
+        Init_Database();
     }
     protected void Init()
     {
@@ -63,6 +64,10 @@ public class MainActivity extends Activity{
                 event.exitButton_Click();
             }
         });
+    }
+    protected void Init_Database()
+    {
+        DatabaseHelper dbHelper= new DatabaseHelper(this.getApplicationContext());
     }
 
 
