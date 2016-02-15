@@ -1,11 +1,18 @@
 package com.giao.ordersystem;
 import android.app.Activity;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.view.View;
 import android.R.*;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Iterator;
+import java.util.List;
+import java.util.ListIterator;
 
 public class Setting extends Activity{
     private Button addTableButton;
@@ -56,7 +63,9 @@ public class Setting extends Activity{
         saveButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                event.saveButton_Click();
+                ArrayList<TableBO> tableCollection = new ArrayList<TableBO>();
+                ArrayList<CategoryBO> categoryCollection=new ArrayList<CategoryBO>();
+                event.saveButton_Click(tableCollection,categoryCollection);
             }
         });
         //HomeButton, OnClickListener

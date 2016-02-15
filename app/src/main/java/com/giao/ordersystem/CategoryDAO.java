@@ -49,9 +49,9 @@ public class CategoryDAO{
         cur.close();
         return list;
     }
-    public boolean remove(int tableID)
+    public boolean remove(int categoryID)
     {
-        return database.delete(DATABASE_TABLE, KEY_ROWID + "=" + tableID, null) > 0;
+        return database.delete(DATABASE_TABLE, KEY_ROWID + "=" + categoryID, null) > 0;
     }
     public boolean removeAll()
     {
