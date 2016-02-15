@@ -12,10 +12,10 @@ public class OrderBO {
     private int numberOfCustomer;
     private String orderNote;
     private int orderPaid;
-    private ArrayList<OrderDetailsDAO> orderDetails= new ArrayList<OrderDetailsDAO>();
+    private ArrayList<OrderDetailsBO> orderDetails= new ArrayList<OrderDetailsBO>();
     public OrderBO()
     {}
-    public OrderBO(int orderID, int tableID,String orderDate,int numberOfCustomer, String orderNote,int orderPaid, ArrayList<OrderDetailsDAO> orderDetails)
+    public OrderBO(int orderID, int tableID,String orderDate,int numberOfCustomer, String orderNote,int orderPaid, ArrayList<OrderDetailsBO> orderDetails)
     {
         this.orderID=orderID;
         this.tableID=tableID;
@@ -37,6 +37,6 @@ public class OrderBO {
     public void setOrderNote(String orderNote){this.orderNote=orderNote;}
     public int getOrderPaid(){return this.orderPaid;}
     public void setOrderPaid(int orderPaid){this.orderPaid=orderPaid;}
-    public ArrayList<OrderDetailsDAO> getOrderDetails(){return this.orderDetails;}
-    public void setOrderDetails(ArrayList<OrderDetailsDAO> orderDetails){this.getOrderDetails().addAll(orderDetails);}
+    public ArrayList<OrderDetailsBO> getOrderDetails(){return this.orderDetails;}
+    public void setOrderDetails(ArrayList<OrderDetailsBO> orderDetails){this.getOrderDetails().addAll(orderDetails);}
 }

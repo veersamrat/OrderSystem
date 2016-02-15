@@ -1,7 +1,6 @@
 package com.giao.ordersystem;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteOpenHelper;
 import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.SQLException;
@@ -13,9 +12,7 @@ import java.util.ArrayList;
 public class TableDAO{
     public static final String KEY_ROWID="TableID";
     public static final String KEY_TableName="TableName";
-    private static final String DATABASE_NAME="OrderSystem";
     private static final String DATABASE_TABLE="Tables";
-    private static final int DATABASE_VERSION=1;
     private static DatabaseHelper databaseHelper;
     //
     public final Context context;
