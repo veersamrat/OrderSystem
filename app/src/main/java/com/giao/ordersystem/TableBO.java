@@ -5,24 +5,14 @@ package com.giao.ordersystem;
  */
 public class TableBO {
 
-    private int tableID;
     private String tableName;
-    public TableBO(int tableID,String tableName)
+    public TableBO(String tableName)
     {
-        this.tableID=tableID;
         this.tableName=tableName;
     }
     public TableBO()
     {
 
-    }
-    public int getTableID()
-    {
-        return this.tableID;
-    }
-    public void setTableID(int tableID)
-    {
-        this.tableID=tableID;
     }
     public String getTableName()
     {

@@ -10,7 +10,6 @@ import java.util.ArrayList;
  * Created by Long on 2/12/2016.
  */
 public class TableDAO{
-    public static final String KEY_ROWID="TableID";
     public static final String KEY_TableName="TableName";
     private static final String DATABASE_TABLE="Tables";
     private static DatabaseHelper databaseHelper;
@@ -42,16 +41,16 @@ public class TableDAO{
         String query="SELECT * FROM Tables";
         Cursor cur=database.rawQuery(query,null);
         List<TableBO> list = new ArrayList<TableBO>();
-        int iRow= cur.getColumnIndex(KEY_ROWID);
+        int iRow= cur.getColumnIndex(KEY_TableName);
         for(cur.moveToFirst();!cur.isAfterLast();cur.moveToNext()) {
-            TableBO record = new TableBO(Integer.parseInt(cur.getString(0)), cur.getString(1));
+            TableBO record = new TableBO(cur.getString(0));
             list.add(record);        }
         cur.close();
         return list;
     }
     public boolean remove(int tableID)
     {
-        return database.delete(DATABASE_TABLE, KEY_ROWID + "=" + tableID, null) > 0;
+        return database.delete(DATABASE_TABLE, KEY_TableName + "=" + tableID, null) > 0;
     }
     public boolean removeAll()
     {
