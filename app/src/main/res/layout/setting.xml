@@ -83,6 +83,9 @@
                     <ListView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:animationCache="false"
+                    android:scrollingCache="false"
+                    android:smoothScrollbar="true"
                     android:background="#ffffff"
                     android:divider="#b5b5b5"
                     android:dividerHeight="1dp"

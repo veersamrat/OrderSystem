@@ -4,10 +4,13 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.view.View;
 import android.R.*;
+import android.widget.ArrayAdapter;
+import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
-
+import android.widget.BaseAdapter;
+import android.view.View;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
@@ -26,6 +29,8 @@ public class Setting extends Activity{
     private Setting_Event event;
     private TableDAO tableDAO;
     private CategoryDAO categoryDAO;
+    private ArrayAdapter<TableBO> tableBOArrayAdapter;
+    private ArrayAdapter<CategoryBO> categoryBOArrayAdapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -77,4 +82,7 @@ public class Setting extends Activity{
             }
         });
     }
+
+
 }
+
