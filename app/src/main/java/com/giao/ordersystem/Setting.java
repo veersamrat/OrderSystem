@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.view.View;
 import android.R.*;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
 import android.widget.Button;
@@ -29,15 +30,17 @@ public class Setting extends Activity{
     private Setting_Event event;
     private TableDAO tableDAO;
     private CategoryDAO categoryDAO;
-    private ArrayAdapter<TableBO> tableBOArrayAdapter;
-    private ArrayAdapter<CategoryBO> categoryBOArrayAdapter;
+    private TableAdapter tableAdapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.setting);
         event=new Setting_Event(this.getApplicationContext());
         Init();
+        //Load list of Table to ListView
         tableDAO = new TableDAO(this.getApplicationContext());
+        event.tableListView_OnLoad(tableListView);
+        //Load list of Category to ListView
         categoryDAO= new CategoryDAO(this.getApplicationContext());
     }
     private void Init()
@@ -63,6 +66,15 @@ public class Setting extends Activity{
                 String categoryName=categoryEditText.getText().toString();
                 event.addCategoryButton_Click(categoryName);      }
         });
+        // Click event for single list row
+/*        tableListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
+            @Override
+            public void onItemClick(AdapterView adapterView, View view,
+                                    int position, long id) {
+
+            }
+        });*/
         //SaveButton, OnClickListener
         saveButton=(Button)findViewById(R.id.saveButton);
         saveButton.setOnClickListener(new View.OnClickListener() {

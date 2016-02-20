@@ -68,6 +68,7 @@ public class MainActivity extends Activity{
     protected void Init_Database()
     {
         DatabaseHelper dbHelper= new DatabaseHelper(this.getApplicationContext());
+        dbHelper.getReadableDatabase();
     }
 
 

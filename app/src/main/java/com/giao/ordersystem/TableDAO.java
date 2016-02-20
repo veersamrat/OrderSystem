@@ -28,7 +28,7 @@ public class TableDAO{
     }
     public void close() throws SQLException
     {
-        this.close();
+        databaseHelper.close();
     }
     public long create(String tableName) throws SQLException
     {
@@ -36,11 +36,11 @@ public class TableDAO{
         cv.put(KEY_TableName, tableName);
         return database.insert(DATABASE_TABLE,null ,cv);
     }
-    public List<TableBO> list()
+    public ArrayList<TableBO> list()
     {
         String query="SELECT * FROM Tables";
         Cursor cur=database.rawQuery(query,null);
-        List<TableBO> list = new ArrayList<TableBO>();
+        ArrayList<TableBO> list = new ArrayList<TableBO>();
         int iRow= cur.getColumnIndex(KEY_TableName);
         for(cur.moveToFirst();!cur.isAfterLast();cur.moveToNext()) {
             TableBO record = new TableBO(cur.getString(0));

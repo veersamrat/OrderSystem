@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.widget.EditText;
+import android.widget.ListView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,7 +18,18 @@ public class Setting_Event extends Activity {
     private CategoryDAO categoryDAO;
     public Setting_Event(Context _context) {
         context = _context;
+        tableDAO= new TableDAO(context);
+        categoryDAO= new CategoryDAO(context);
     }
+    public void tableListView_OnLoad(ListView list){
+
+   //     if(tableDAO.list().size()!=0) {
+            TableAdapter tableAdapter = new TableAdapter(context, tableDAO.list());
+            list.setAdapter(tableAdapter);
+  //      }
+
+    }
+    public void categoryListView_OnLoad(ListView list){}
     public void addTableButton_Click(String tableName)
     {
         tableDAO.create(tableName);
@@ -41,8 +53,7 @@ public class Setting_Event extends Activity {
             //Insert each row
         }
     }
-    public void homeButton_Click()
-    {
+    public void homeButton_Click() {
         System.exit(1);
         finish();
     }
