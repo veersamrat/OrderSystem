@@ -18,6 +18,7 @@ public class CategoryDAO{
     private SQLiteDatabase database;
     public CategoryDAO(Context context) {
         this.context=context;
+        databaseHelper= new DatabaseHelper(context);
         // TODO Auto-generated constructor stub
     }
     public CategoryDAO open() throws SQLException
@@ -35,11 +36,11 @@ public class CategoryDAO{
         cv.put(KEY_TableName, tableName);
         return database.insert(DATABASE_TABLE,null ,cv);
     }
-    public List<CategoryBO> list()
+    public ArrayList<CategoryBO> list()
     {
         String query="SELECT * FROM Category";
         Cursor cur=database.rawQuery(query,null);
-        List<CategoryBO> list = new ArrayList<CategoryBO>();
+        ArrayList<CategoryBO> list = new ArrayList<CategoryBO>();
         int iRow= cur.getColumnIndex(KEY_TableName);
         for(cur.moveToFirst();!cur.isAfterLast();cur.moveToNext()) {
             CategoryBO record = new CategoryBO(cur.getString(0));

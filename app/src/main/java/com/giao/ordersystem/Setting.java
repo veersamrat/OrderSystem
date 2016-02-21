@@ -43,6 +43,8 @@ public class Setting extends Activity{
         event.tableListView_OnLoad(tableListView);
         //Load list of Category to ListView
         categoryDAO= new CategoryDAO(this.getApplicationContext());
+        catetoryListView=(ListView)findViewById(R.id.categoryListView);
+        event.tableListView_OnLoad(catetoryListView);
     }
     private void Init()
     {
@@ -65,7 +67,7 @@ public class Setting extends Activity{
             @Override
             public void onClick(View v) {
                 String categoryName=categoryEditText.getText().toString();
-                event.addCategoryButton_Click(categoryName);      }
+                event.addCategoryButton_Click(categoryName,catetoryListView);      }
         });
         // Click event for single list row
 /*        tableListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {

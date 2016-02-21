@@ -25,12 +25,18 @@ public class Setting_Event extends Activity {
     public void tableListView_OnLoad(ListView list){
 
         tableDAO.open();
-        list.setAdapter( new TableAdapter(context, tableDAO.list()));
+        TableAdapter tableAdapter = new TableAdapter(context, tableDAO.list());
+        list.setAdapter(tableAdapter);
         tableDAO.close();
-
-   //     tableAdapter.notifyDataSetChanged();
+        tableAdapter.notifyDataSetChanged();
     }
-    public void categoryListView_OnLoad(ListView list){}
+    public void categoryListView_OnLoad(ListView list){
+        categoryDAO.open();
+        CategoryAdapter categoryAdapter = new CategoryAdapter(context, categoryDAO.list());
+        list.setAdapter(categoryAdapter);
+        categoryDAO.close();
+        categoryAdapter.notifyDataSetChanged();
+    }
     public void addTableButton_Click(String tableName,ListView list)
     {
         try {
@@ -46,9 +52,20 @@ public class Setting_Event extends Activity {
             tableDAO.close();
         }
     }
-    public void addCategoryButton_Click(String categoryName)
+    public void addCategoryButton_Click(String categoryName, ListView list)
     {
-        categoryDAO.create(categoryName);
+        try {
+            categoryDAO.open();
+            categoryDAO.create(categoryName);
+            Toast.makeText(context, "Food Category inserted successful",Toast.LENGTH_LONG ).show();
+            CategoryAdapter categoryAdapter = new CategoryAdapter(context, categoryDAO.list());
+            list.setAdapter(categoryAdapter);
+            categoryDAO.close();
+        }
+        catch (Exception e) {
+            Toast.makeText(context, "Failed. Please try again", Toast.LENGTH_LONG).show();
+            categoryDAO.close();
+        }
     }
     public void saveButton_Click(ArrayList<TableBO> tableCollection, ArrayList<CategoryBO> categoryCollection)
     {

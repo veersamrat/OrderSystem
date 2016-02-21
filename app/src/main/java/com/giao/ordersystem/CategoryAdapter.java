@@ -17,16 +17,16 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-public class TableAdapter extends BaseAdapter{
-  //  private Context context;
-    private ArrayList<TableBO> data;
+public class CategoryAdapter extends BaseAdapter{
+    //  private Context context;
+    private ArrayList<CategoryBO> data;
     private static LayoutInflater inflater = null;
 
-    public TableAdapter(Context context, ArrayList<TableBO> data) {
+    public CategoryAdapter(Context context, ArrayList<CategoryBO> data) {
         // TODO Auto-generated constructor stub
-   //     this.context = context;
-        this.data= new ArrayList<TableBO>(data);
-      //  this.this.data=data;
+        //     this.context = context;
+        this.data= new ArrayList<CategoryBO>(data);
+        //  this.this.data=data;
         inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
     }
     @Override
@@ -36,7 +36,7 @@ public class TableAdapter extends BaseAdapter{
     }
 
     @Override
-    public TableBO getItem(int position) {
+    public CategoryBO getItem(int position) {
         // TODO Auto-generated method stub
         return data.get(position);
     }
@@ -52,11 +52,11 @@ public class TableAdapter extends BaseAdapter{
         // TODO Auto-generated method stub
         View vi = convertView;
         if (vi == null)
-            vi = inflater.inflate(R.layout.listview_layout, null);
-        EditText tableEditText=(EditText)vi.findViewById(R.id.EditTableEditText);
-    //    Button tableButton=(Button)vi.findViewById(R.id.DeleteTableButton);
-        TableBO temp=(TableBO)data.get(position);
-        tableEditText.setText(temp.getTableName());
+            vi = inflater.inflate(R.layout.listview_layout2, null);
+        EditText categoryEditText=(EditText)vi.findViewById(R.id.EditCategoryEditText);
+        //       Button tableButton=(Button)vi.findViewById(R.id.DeleteTableButton);
+        CategoryBO temp=(CategoryBO)data.get(position);
+        categoryEditText.setText(temp.getCategoryName());
         //tableButton.set
         return vi;
         //return null;

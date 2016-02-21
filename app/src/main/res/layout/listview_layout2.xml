@@ -7,20 +7,21 @@
     android:padding="5dip"
     android:weightSum="100">
     <EditText
-        android:layout_width="wrap_content"
+        android:layout_width="0dip"
         android:layout_height="wrap_content"
-        android:id="@+id/EditTableEditText"
+        android:id="@+id/EditCategoryEditText"
         android:layout_weight="80"
-        android:layout_toLeftOf="@+id/DeleteTableButton"
-        android:inputType="text" />
+        android:layout_toLeftOf="@+id/DeleteCategoryButton"
+        android:inputType="text"
+      />
 
     <Button
         style="?android:attr/buttonStyleSmall"
-        android:layout_width="wrap_content"
+        android:layout_width="0dip"
         android:layout_height="wrap_content"
         android:text="Delete"
-        android:id="@+id/DeleteTableButton"
+        android:id="@+id/DeleteCategoryButton"
         android:layout_weight="20"
-        android:layout_alignBottom="@+id/EditTableEditText"
-        android:contentDescription="TableName" />
+        android:layout_alignBottom="@+id/EditCategoryEditText"
+        android:contentDescription="CategoryName" />
 </LinearLayout>
