@@ -18,15 +18,15 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 public class TableAdapter extends BaseAdapter{
-    private Context context;
+  //  private Context context;
     private ArrayList<TableBO> data;
     private static LayoutInflater inflater = null;
 
     public TableAdapter(Context context, ArrayList<TableBO> data) {
         // TODO Auto-generated constructor stub
-        this.context = context;
-        data= new ArrayList<TableBO>();
-        this.data.addAll(data);
+   //     this.context = context;
+        this.data= new ArrayList<TableBO>(data);
+      //  this.this.data=data;
         inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
     }
     @Override

@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,16 +24,27 @@ public class Setting_Event extends Activity {
     }
     public void tableListView_OnLoad(ListView list){
 
-   //     if(tableDAO.list().size()!=0) {
-            TableAdapter tableAdapter = new TableAdapter(context, tableDAO.list());
-            list.setAdapter(tableAdapter);
-  //      }
+        tableDAO.open();
+        list.setAdapter( new TableAdapter(context, tableDAO.list()));
+        tableDAO.close();
 
+   //     tableAdapter.notifyDataSetChanged();
     }
     public void categoryListView_OnLoad(ListView list){}
-    public void addTableButton_Click(String tableName)
+    public void addTableButton_Click(String tableName,ListView list)
     {
-        tableDAO.create(tableName);
+        try {
+            tableDAO.open();
+            tableDAO.create(tableName);
+            Toast.makeText(context, "Table inserted successful",Toast.LENGTH_LONG ).show();
+            TableAdapter tableAdapter = new TableAdapter(context, tableDAO.list());
+            list.setAdapter(tableAdapter);
+            tableDAO.close();
+        }
+        catch (Exception e) {
+            Toast.makeText(context, "Failed. Please try again",Toast.LENGTH_LONG ).show();
+            tableDAO.close();
+        }
     }
     public void addCategoryButton_Click(String categoryName)
     {

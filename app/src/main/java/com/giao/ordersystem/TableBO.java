@@ -23,4 +23,5 @@ public class TableBO {
         this.tableName=tableName;
     }
 
+
 }

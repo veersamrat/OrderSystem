@@ -39,6 +39,7 @@ public class Setting extends Activity{
         Init();
         //Load list of Table to ListView
         tableDAO = new TableDAO(this.getApplicationContext());
+        tableListView=(ListView)findViewById(R.id.tableListView);
         event.tableListView_OnLoad(tableListView);
         //Load list of Category to ListView
         categoryDAO= new CategoryDAO(this.getApplicationContext());
@@ -55,7 +56,7 @@ public class Setting extends Activity{
             @Override
             public void onClick(View v) {
                 String tableName=tableEditText.getText().toString();
-                event.addTableButton_Click(tableName);
+                event.addTableButton_Click(tableName,tableListView);
             }
         });
         //addCategoryButton, OnClickListener
