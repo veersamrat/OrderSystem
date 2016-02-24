@@ -147,6 +147,7 @@
                 android:background="#ffffff"
                 android:divider="#b5b5b5"
                 android:dividerHeight="1dp"
+                android:descendantFocusability="beforeDescendants"
                 android:id="@+id/categoryListView"/>
                     </LinearLayout>
 

@@ -2,7 +2,6 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="wrap_content"
-    android:background="@drawable/list_selector"
     android:orientation="horizontal"
     android:padding="5dip"
     android:weightSum="100">
@@ -10,8 +9,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/EditTableEditText"
-        android:layout_weight="80"
+        android:layout_weight="85"
         android:layout_toLeftOf="@+id/DeleteTableButton"
+        android:singleLine="true"
         android:inputType="text" />
 
     <Button
@@ -20,7 +20,7 @@
         android:layout_height="wrap_content"
         android:text="Delete"
         android:id="@+id/DeleteTableButton"
-        android:layout_weight="20"
+        android:layout_weight="15"
         android:layout_alignBottom="@+id/EditTableEditText"
         android:contentDescription="TableName" />
 </LinearLayout>

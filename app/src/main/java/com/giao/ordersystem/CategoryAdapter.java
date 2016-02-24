@@ -52,9 +52,9 @@ public class CategoryAdapter extends BaseAdapter{
         // TODO Auto-generated method stub
         View vi = convertView;
         if (vi == null)
-            vi = inflater.inflate(R.layout.listview_layout2, null);
+            vi = inflater.inflate(R.layout.listview_layout2,null);
         EditText categoryEditText=(EditText)vi.findViewById(R.id.EditCategoryEditText);
-        //       Button tableButton=(Button)vi.findViewById(R.id.DeleteTableButton);
+        //      Button tableButton=(Button)vi.findViewById(R.id.DeleteTableButton);
         CategoryBO temp=(CategoryBO)data.get(position);
         categoryEditText.setText(temp.getCategoryName());
         //tableButton.set
