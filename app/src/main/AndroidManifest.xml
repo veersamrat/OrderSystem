@@ -43,7 +43,8 @@
         </activity>
         <activity
             android:name=".Setting"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:theme="@style/AppTheme.NoActionBar"
+            >
             <intent-filter>
                 <action android:name="com.giao.ordersystem.Setting" />
                 <category android:name="android.intent.category.DEFAULT" />

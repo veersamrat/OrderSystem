@@ -4,7 +4,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="0dp"
-    tools:context="com.giao.OrderSystem.Setting">
+    tools:context="com.giao.OrderSystem.Setting"
+    >
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
