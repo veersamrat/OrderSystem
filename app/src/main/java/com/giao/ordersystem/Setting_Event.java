@@ -16,7 +16,7 @@ import java.util.List;
  * Created by Long on 2/8/2016.
  */
 public class Setting_Event extends Activity {
-    private final Context context;
+    private Context context;
     private TableDAO tableDAO;
     private CategoryDAO categoryDAO;
     public Setting_Event(Context _context) {

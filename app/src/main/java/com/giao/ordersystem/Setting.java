@@ -44,7 +44,7 @@ public class Setting extends Activity{
         //Load list of Category to ListView
         categoryDAO= new CategoryDAO(this.getApplicationContext());
         catetoryListView=(ListView)findViewById(R.id.categoryListView);
-//        event.categoryListView_OnLoad(catetoryListView);
+    //    event.categoryListView_OnLoad(catetoryListView);
     }
     private void Init()
     {

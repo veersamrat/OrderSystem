@@ -15,6 +15,7 @@ public class DishDAO {
     private static final String DISH_NAME = "dishName";
     private static final String DISH_PRICE = "dishPrice";
     private static final String DISH_DESCRIPTION = "dishDescription";
+    private static final String DISH_AVAILABILITY="availability";
     private static final String DATABASE_TABLE = "Menu";
     private static DatabaseHelper databaseHelper;
     //
@@ -35,12 +36,13 @@ public class DishDAO {
         this.close();
     }
 
-    public long create(String categoryID, String dishName, String dishPrice, String dishDecription) throws SQLException {
+    public long create(String categoryID, String dishName, String dishPrice, String dishDecription, String availability) throws SQLException {
         ContentValues cv = new ContentValues();
         cv.put(CATEGORYID, categoryID);
         cv.put(DISH_NAME, dishName);
         cv.put(DISH_PRICE, dishPrice);
         cv.put(DISH_DESCRIPTION, dishDecription);
+        cv.put(DISH_AVAILABILITY,availability);
         return database.insert(DATABASE_TABLE, null, cv);
     }
 
@@ -51,7 +53,7 @@ public class DishDAO {
         int iRow = cur.getColumnIndex(KEY_ROWID);
         for (cur.moveToFirst(); !cur.isAfterLast(); cur.moveToNext()) {
             DishBO record = new DishBO(Integer.parseInt(cur.getString(0)), Integer.parseInt(cur.getString(1)), cur.getString(2)
-                    , Integer.parseInt(cur.getString(3)), cur.getString(4));
+                    , Integer.parseInt(cur.getString(3)), cur.getString(4),Integer.parseInt(cur.getString(5)));
             list.add(record);
         }
         cur.close();

@@ -9,18 +9,21 @@ public class OrderDetailsBO {
     private int dishID;
     private int price;
     private String note;
+    private int done;
+    private int paid;
     public OrderDetailsBO()
     {
 
     }
-
-    public OrderDetailsBO(int orderDetailID, int orderID, int dishID,int price, String note)
+    public OrderDetailsBO(int orderDetailID, int orderID, int dishID,int price, String note,int done, int paid)
     {
         this.orderDetailID=orderDetailID;
         this.orderID=orderID;
         this.dishID=dishID;
         this.price=price;
         this.note=note;
+        this.done=done;
+        this.paid=paid;
     }
     public int getOrderDetailID() {return this.orderDetailID; }
     public void setOrderDetailID(int orderDetailID) {this.orderDetailID = orderDetailID;}
@@ -32,4 +35,8 @@ public class OrderDetailsBO {
     public void setPrice(int price){this.price=price;}
     public String getNote(){return this.note;}
     public void setNote(String note){this.note=note;}
+    public int getDone() {        return done;    }
+    public void setDone(int done) {        this.done = done;    }
+    public int getPaid() {        return paid;    }
+    public void setPaid(int paid) {        this.paid = paid;    }
 }
