@@ -10,13 +10,9 @@ import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
-import android.widget.BaseAdapter;
-import android.view.View;
 import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Iterator;
-import java.util.List;
-import java.util.ListIterator;
+import java.util.ServiceLoader;
+
 
 public class Setting extends Activity{
     private Button addTableButton;
@@ -44,7 +40,8 @@ public class Setting extends Activity{
         //Load list of Category to ListView
         categoryDAO= new CategoryDAO(this.getApplicationContext());
         catetoryListView=(ListView)findViewById(R.id.categoryListView);
-    //    event.categoryListView_OnLoad(catetoryListView);
+        event.categoryListView_OnLoad(catetoryListView);
+
     }
     private void Init()
     {

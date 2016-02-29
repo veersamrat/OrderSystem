@@ -16,7 +16,6 @@ public class TableDAO{
     //
     public final Context context;
     private SQLiteDatabase database;
-
     public TableDAO(Context context) {
         this.context=context;
         databaseHelper= new DatabaseHelper(context);
