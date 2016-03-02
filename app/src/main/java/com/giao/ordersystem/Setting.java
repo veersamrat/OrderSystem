@@ -36,7 +36,7 @@ public class Setting extends Activity{
         //Load list of Table to ListView
         tableDAO = new TableDAO(this.getApplicationContext());
         tableListView=(ListView)findViewById(R.id.tableListView);
-        event.tableListView_OnLoad(tableListView);
+  //      event.tableListView_OnLoad(tableListView);
         //Load list of Category to ListView
         categoryDAO= new CategoryDAO(this.getApplicationContext());
         catetoryListView=(ListView)findViewById(R.id.categoryListView);
