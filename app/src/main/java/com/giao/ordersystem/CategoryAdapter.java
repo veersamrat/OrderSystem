@@ -18,9 +18,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 import static java.lang.System.currentTimeMillis;
 
-
 public class CategoryAdapter extends BaseAdapter implements View.OnFocusChangeListener{
-    //  private Context context;
     private Context context;
     private ArrayList<CategoryBO> data;
     private static LayoutInflater inflater = null;

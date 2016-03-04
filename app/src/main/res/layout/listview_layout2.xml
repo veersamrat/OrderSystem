@@ -24,6 +24,6 @@
         android:text="Delete"
         android:id="@+id/DeleteCategoryButton"
         android:layout_weight="15"
-        android:layout_alignBottom="@+id/EditTableEditText"
+        android:layout_alignBottom="@+id/EditCategoryEditText"
         android:contentDescription="CategoryName"  />
 </LinearLayout>

@@ -31,7 +31,6 @@ public class TableAdapter extends BaseAdapter implements View.OnFocusChangeListe
     private View focusTarget;
     public TableAdapter(Context context, ArrayList<TableBO> data) {
         // TODO Auto-generated constructor stub
-     //   super(context,R.id.tableListView,data);
         minDelta = 300;           // threshold in ms
         focusTime = 0;                 // time of last touch
         View focusTarget = null;

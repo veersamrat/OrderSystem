@@ -21,7 +21,6 @@ public class TableDAO{
         databaseHelper= new DatabaseHelper(context);
         // TODO Auto-generated constructor stub
     }
-
     public TableDAO open() throws SQLException
     {
         database=databaseHelper.getReadableDatabase();
@@ -49,9 +48,9 @@ public class TableDAO{
         cur.close();
         return list;
     }
-    public boolean remove(int tableID)
+    public boolean remove(int tableName)
     {
-        return database.delete(DATABASE_TABLE, KEY_TableName + "=" + tableID, null) > 0;
+        return database.delete(DATABASE_TABLE, KEY_TableName + "=" + tableName, null) > 0;
     }
     public boolean removeAll()
     {

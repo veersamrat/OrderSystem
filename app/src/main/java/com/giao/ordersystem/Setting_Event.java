@@ -20,9 +20,9 @@ public class Setting_Event extends Activity {
     private TableDAO tableDAO;
     private CategoryDAO categoryDAO;
     public Setting_Event(Context _context) {
-        context = _context;
-        tableDAO= new TableDAO(context);
-        categoryDAO= new CategoryDAO(context);
+        this.context = _context;
+        tableDAO= new TableDAO(this.context);
+        categoryDAO= new CategoryDAO(this.context);
     }
     public void tableListView_OnLoad(ListView list){
 
