@@ -12,7 +12,7 @@ import android.widget.EditText;
 import android.widget.ListView;
 import java.util.ArrayList;
 import java.util.ServiceLoader;
-
+import android.content.Context;
 
 public class Setting extends Activity{
     private Button addTableButton;
@@ -26,25 +26,26 @@ public class Setting extends Activity{
     private Setting_Event event;
     private TableDAO tableDAO;
     private CategoryDAO categoryDAO;
-    private TableAdapter tableAdapter;
+//    private TableAdapter tableAdapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.setting);
         event=new Setting_Event(this.getApplicationContext());
         Init();
+        Context context= this.getApplicationContext();
         //Load list of Table to ListView
-        tableDAO = new TableDAO(this.getApplicationContext());
-        tableListView=(ListView)findViewById(R.id.tableListView);
-  //      event.tableListView_OnLoad(tableListView);
+        tableDAO = new TableDAO(context);
+        event.tableListView_OnLoad(tableListView);
         //Load list of Category to ListView
-        categoryDAO= new CategoryDAO(this.getApplicationContext());
-        catetoryListView=(ListView)findViewById(R.id.categoryListView);
+        categoryDAO= new CategoryDAO(context);
         event.categoryListView_OnLoad(catetoryListView);
 
     }
     private void Init()
     {
+        tableListView=(ListView)findViewById(R.id.tableListView);
+        catetoryListView=(ListView)findViewById(R.id.categoryListView);
         //tableName EditText
         tableEditText=(EditText)findViewById(R.id.tableNameEditText);
         //CategoryName EditText

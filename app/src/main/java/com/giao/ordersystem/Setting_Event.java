@@ -32,10 +32,12 @@ public class Setting_Event extends Activity {
         tableDAO.close();
     }
     public void categoryListView_OnLoad(ListView list){
+
         categoryDAO.open();
         CategoryAdapter categoryAdapter = new CategoryAdapter(context, categoryDAO.list());
-        list.setAdapter(categoryAdapter);
         categoryDAO.close();
+        list.setAdapter(categoryAdapter);
+
     }
     public void addTableButton_Click(String tableName,ListView list)
     {
