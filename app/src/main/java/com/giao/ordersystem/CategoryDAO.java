@@ -28,7 +28,7 @@ public class CategoryDAO{
     }
     public void close() throws SQLException
     {
-        this.close();
+        databaseHelper.close();
     }
     public long create(String tableName) throws SQLException
     {
