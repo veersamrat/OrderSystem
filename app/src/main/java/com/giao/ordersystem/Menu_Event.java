@@ -33,5 +33,6 @@ public class Menu_Event {
         ArrayAdapter<String> categoryAdapter =  new ArrayAdapter(context,android.R.layout.simple_spinner_item,categoryList);
         categoryAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         categorySpinner.setAdapter(categoryAdapter);
+        categoryAdapter.notifyDataSetChanged();
     }
 }

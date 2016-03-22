@@ -48,13 +48,12 @@
                 android:background="#ffffff"
                 android:layout_weight="8"/>
 
-
             <ListView
                 android:layout_width="match_parent"
                 android:layout_height="0dip"
                 android:id="@+id/categorylistView"
                 android:background="#ffffff"
-                android:layout_weight="80"/>
+                android:layout_weight="72"/>
             <TableLayout
                 android:layout_width="match_parent"
                 android:layout_height="0dip"
@@ -68,6 +67,16 @@
                         android:background="#FFC61717"
                         android:textColor="#ffffff"
                         android:textSize="40sp"
+                        android:text="Add"
+                        android:id="@+id/addMenuButton"
+                        android:layout_weight="5"/>
+                    <Button
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:background="#FFC61717"
+                        android:textColor="#ffffff"
+                        android:textSize="40sp"
+                        android:layout_marginLeft="5dp"
                         android:text="Save"
                         android:id="@+id/saveMenuButton"
                         android:layout_weight="5"/>
