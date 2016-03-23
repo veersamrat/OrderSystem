@@ -46,7 +46,7 @@
                         android:layout_height="wrap_content"
                         android:id="@+id/spinner"
                         android:layout_marginTop="10dp"
-                        android:layout_marginBottom="25dp"
+                        android:layout_marginBottom="5dp"
                         android:background="#ffffff"
                         android:layout_weight="5"/>
 
@@ -68,7 +68,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:background="#FFC61717"
-
                     android:textColor="#ffffff"
                     android:textSize="40sp"
                     android:text="Send"

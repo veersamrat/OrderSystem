@@ -36,7 +36,7 @@
         <LinearLayout
             android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="0dip"
             android:layout_weight="95"
             android:layout_marginLeft="25dp"
             android:layout_marginRight="25dp"
@@ -45,15 +45,15 @@
 
             <ListView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/listView"
+                android:layout_height="0dip"
+                android:id="@+id/tableOrderListView"
                 android:background="#ffffff"
                 android:layout_weight="90"
                 android:layout_marginTop="10dp" />
             <TableLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="5dp"
                 android:layout_marginBottom="20dp"
                 android:layout_weight="5">
                 <TableRow>
@@ -62,7 +62,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="50dp"
                         android:textSize="40sp"
-                        android:id="@+id/expandableListView"
+                        android:id="@+id/tableExpandListView"
                         android:background="#ffffff"
                         android:layout_weight="5"/>
 
