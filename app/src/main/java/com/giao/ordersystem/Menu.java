@@ -8,7 +8,7 @@ import android.widget.Spinner;
 
 public class Menu extends Activity{
     private Menu_Event event;
-    private Spinner categorySpinner;
+    private static Spinner categorySpinner;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
