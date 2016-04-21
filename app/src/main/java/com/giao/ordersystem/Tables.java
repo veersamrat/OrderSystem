@@ -17,6 +17,7 @@ public class Tables extends Activity{
         setContentView(R.layout.tables);
      //   event= new Tables_Event(this.getApplicationContext());
         tableLitView = (ListView) findViewById(R.id.tableListView);
+        event.tableListView_OnLoad(tableLitView);
 
     }
 }
