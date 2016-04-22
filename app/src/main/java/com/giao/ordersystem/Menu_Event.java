@@ -1,5 +1,6 @@
 package com.giao.ordersystem;
 
+        import android.app.Activity;
         import android.content.Context;
         import android.widget.ArrayAdapter;
         import android.widget.ListView;
@@ -11,7 +12,7 @@ package com.giao.ordersystem;
 /**
  * Created by Long on 2/8/2016.
  */
-public class Menu_Event {
+public class Menu_Event extends Activity {
     private Context context;
     private CategoryDAO categoryDAO;
     public Menu_Event()

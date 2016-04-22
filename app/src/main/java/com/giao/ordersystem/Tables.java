@@ -15,9 +15,16 @@ public class Tables extends Activity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.tables);
-     //   event= new Tables_Event(this.getApplicationContext());
-        tableLitView = (ListView) findViewById(R.id.tableListView);
+        event= new Tables_Event(this.getApplicationContext());
+        tableLitView = (ListView) findViewById(R.id.tableOrderListView);
         event.tableListView_OnLoad(tableLitView);
+        homeButton=(Button)findViewById(R.id.homeButton);
+        homeButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                event.homButton_OnClick();
+            }
+        });
 
     }
 }
