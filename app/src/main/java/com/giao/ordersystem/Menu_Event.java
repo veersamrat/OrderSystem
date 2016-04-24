@@ -25,13 +25,14 @@ public class Menu_Event extends Activity {
     public void categoryListView_OnLoad(Spinner categorySpinner)
     {
         categoryDAO.open();
-        List<String> categoryList = new ArrayList<String>();
+        ArrayList<String> categoryList = new ArrayList<String>();
         for(int i=0;i<categoryDAO.list().size();i++)
         {
             categoryList.add(categoryDAO.list().get(i).getCategoryName());
         }
         categoryDAO.close();
         ArrayAdapter<String> categoryAdapter =  new ArrayAdapter<String>(context,android.R.layout.simple_spinner_item,categoryList);
+     //   ArrayAdapter<String> categoryAdatper=ArrayAdapter.createFromResource(context, categoryList, android.R.layout.simple_spinner_item);
         categoryAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         categorySpinner.setAdapter(categoryAdapter);
         categoryAdapter.notifyDataSetChanged();
