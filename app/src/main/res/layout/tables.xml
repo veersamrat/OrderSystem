@@ -58,14 +58,6 @@
                 android:layout_weight="5">
                 <TableRow>
 
-                    <ExpandableListView
-                        android:layout_width="match_parent"
-                        android:layout_height="50dp"
-                        android:textSize="40sp"
-                        android:id="@+id/tableExpandListView"
-                        android:background="#ffffff"
-                        android:layout_weight="5"/>
-
                     <Button
                         android:layout_width="match_parent"
                         android:layout_height="50dp"

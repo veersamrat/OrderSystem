@@ -24,6 +24,10 @@ public class Tables_Event extends Activity {
         tableListView.setAdapter(tableAdapter);
         tableDAO.close();
     }
+    public void tableListView_OnItemSelected(ListView tableListView)
+    {
+
+    }
     public void homButton_OnClick()
     {
         System.exit(1);
