@@ -54,7 +54,7 @@
                     <ListView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:id="@+id/listView"
+                        android:id="@+id/tableListView2"
                         android:background="#ffffff"
                         android:layout_weight="90"/>
             <TableLayout
@@ -81,7 +81,7 @@
                     android:textColor="#ffffff"
                     android:textSize="40sp"
                     android:text="Home"
-                    android:id="@+id/homeButton"
+                    android:id="@+id/homeButton2"
                     android:layout_gravity="center_horizontal"
                     android:layout_weight="5" />
                 </TableRow>

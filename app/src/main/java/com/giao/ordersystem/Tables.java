@@ -36,8 +36,8 @@ public class Tables extends Activity{
 
     );
     event.tableListView_OnLoad(tableListView);
-        homeButton=(Button)findViewById(R.id.homeButton);
-        homeButton.setOnClickListener(new View.OnClickListener() {
+    homeButton=(Button)findViewById(R.id.homeButton);
+    homeButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 event.homButton_OnClick();

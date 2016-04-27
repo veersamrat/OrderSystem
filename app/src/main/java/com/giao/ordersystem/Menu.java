@@ -11,7 +11,6 @@ import android.widget.Toast;
 
 public class Menu extends Activity{
     private Menu_Event event;
-    private Tables_Event table_event;
     private static Spinner categorySpinner;
     private static Button homeButton;
     @Override
@@ -19,7 +18,6 @@ public class Menu extends Activity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.menu);
         event= new Menu_Event(this.getApplicationContext());
-        table_event= new Tables_Event(this.getApplicationContext());
         categorySpinner = (Spinner) findViewById(R.id.categorySpinner);
         event.categoryListView_OnLoad(categorySpinner);
         categorySpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -39,7 +37,7 @@ public class Menu extends Activity{
         homeButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                table_event.homButton_OnClick();
+                event.homButton_OnClick();
             }
         });
     }

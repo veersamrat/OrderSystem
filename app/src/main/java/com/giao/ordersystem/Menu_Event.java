@@ -37,4 +37,9 @@ public class Menu_Event extends Activity {
         categorySpinner.setAdapter(categoryAdapter);
         categoryAdapter.notifyDataSetChanged();
     }
+    public void homButton_OnClick()
+    {
+        System.exit(1);
+        finish();
+    }
 }
