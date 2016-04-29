@@ -1,76 +1,41 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="0dp"
-    app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="com.giao.OrderSystem.Tables">
+    android:background="#b1cef4">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="60dip"
+            android:paddingTop="@dimen/activity_horizontal_margin"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textAlignment="center"
+            android:text="Table"
+            android:textStyle="bold"
+            android:textSize="32sp"
+            android:textColor="#ffffff"
+            android:id="@+id/textView"
+            android:background="#3f51B5"/>
+        <ListView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/tableOrderListView"
+            android:background="#ffffff"
+            android:layout_weight="50"
+            android:isScrollContainer="false"/>
+
     <LinearLayout
-        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:weightSum="100"
-        android:background="#b1cef4">
-        <LinearLayout
-            android:orientation="vertical"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="5"
-            android:weightSum="1"
-            android:background="#3f51B5">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:paddingTop="@dimen/activity_horizontal_margin"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:textAlignment="center"
-                android:text="Table"
-                android:textStyle="bold"
-                android:textSize="32dp"
-                android:textColor="#ffffff"
-                android:id="@+id/textView" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:orientation="vertical"
-            android:layout_width="match_parent"
-            android:layout_height="0dip"
-            android:layout_weight="95"
-            android:layout_marginLeft="25dp"
-            android:layout_marginRight="25dp"
-            android:gravity="center_horizontal"
-            android:weightSum="100">
-
-            <ListView
-                android:layout_width="match_parent"
-                android:layout_height="0dip"
-                android:id="@+id/tableOrderListView"
-                android:background="#ffffff"
-                android:layout_weight="90"
-                android:layout_marginTop="10dp" />
-            <TableLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:layout_marginBottom="20dp"
-                android:layout_weight="5">
-                <TableRow>
-
-                    <Button
-                        android:layout_width="match_parent"
-                        android:layout_height="50dp"
-                        android:layout_marginLeft="5dp"
-                        android:background="#FFC61717"
-                        android:textColor="#ffffff"
-                        android:textSize="40sp"
-                        android:text="Home"
-                        android:id="@+id/homeButton"
-                        android:layout_gravity="center_horizontal"
-                        android:layout_weight="5" />
-                </TableRow>
-            </TableLayout>
-        </LinearLayout>
+        android:layout_height="wrap_content">
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="50dip"
+        android:background="#FFC61717"
+        android:textColor="#ffffff"
+        android:textSize="40sp"
+        android:text="Home"
+        android:id="@+id/homeButton"
+        android:layout_gravity="center_horizontal"
+        android:layout_weight="10"/>
     </LinearLayout>
-</RelativeLayout>
+
+</LinearLayout>

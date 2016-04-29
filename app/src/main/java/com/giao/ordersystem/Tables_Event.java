@@ -23,6 +23,7 @@ public class Tables_Event extends Activity {
         TableAdapter tableAdapter = new TableAdapter(context, tableDAO.list());
         tableListView.setAdapter(tableAdapter);
         tableDAO.close();
+        tableAdapter.notifyDataSetChanged();
     }
     public void tableListView_OnItemSelected(ListView tableListView)
     {
