@@ -5,6 +5,7 @@ package com.giao.ordersystem;
  */
 import java.util.ArrayList;
 import android.content.Context;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,19 +14,19 @@ import android.widget.Button;
 import android.widget.EditText;
 
 
-public class TableAdapter extends BaseAdapter implements View.OnFocusChangeListener{
+public class TableAdapter extends BaseAdapter{
     private Context context;
     private ArrayList<TableBO> data;
     private static LayoutInflater inflater = null;
     private EditText mText;
-    private final int minDelta;           // threshold in ms
+ //   private final int minDelta;           // threshold in ms
     private long focusTime;                 // time of last touch
     private View focusTarget;
     public TableAdapter(Context context, ArrayList<TableBO> data) {
         // TODO Auto-generated constructor stub
-        minDelta = 300;           // threshold in ms
-        focusTime = 0;                 // time of last touch
-        View focusTarget = null;
+  //      minDelta = 300;           // threshold in ms
+  //      focusTime = 0;                 // time of last touch
+ //       View focusTarget = null;
         this.context = context;
         this.data= new ArrayList<TableBO>(data);
 
@@ -52,22 +53,22 @@ public class TableAdapter extends BaseAdapter implements View.OnFocusChangeListe
     public View getView(final int position, View convertView, ViewGroup parent) {
         // TODO Auto-generated method stub
         final Holder holder= new Holder();
-        final long mTextLostFocusTimestamp = -1;
+     //   final long mTextLostFocusTimestamp = -1;
         View vi;
         if(convertView == null)
         {
             LayoutInflater inflater = (LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             vi = inflater.inflate(R.layout.listview_layout, null, true);
         }
-        else {
+      //  else {
 
             vi = convertView;
             holder.edittext = (EditText) vi.findViewById(R.id.EditTableEditText);
-            mText=(EditText) vi.findViewById(R.id.EditTableEditText);
+       //     mText=(EditText) vi.findViewById(R.id.EditTableEditText);
             holder.button = (Button) vi.findViewById(R.id.DeleteTableButton);
             TableBO temp = (TableBO) data.get(position);
+      //      mText.setText(temp.getTableName());
             holder.edittext.setText(temp.getTableName());
-
             holder.button.setTag(temp.getTableName());
             holder.button.setTag(position);
             holder.button.setOnClickListener(new View.OnClickListener() {
@@ -79,9 +80,9 @@ public class TableAdapter extends BaseAdapter implements View.OnFocusChangeListe
                     notifyDataSetChanged();
                 }
             });
-            holder.edittext.setOnFocusChangeListener(this);
+ //           holder.edittext.setOnFocusChangeListener(this);
             vi.setTag(holder);
-        }
+     //   }
         return vi;
     }
     public class Holder{EditText edittext; Button button;}
@@ -95,7 +96,7 @@ public class TableAdapter extends BaseAdapter implements View.OnFocusChangeListe
     6. the leftmost, topmost view gains focus, due to Android nonsense
     7. the leftmost view loses focus, due to requestFocus being called
     8. target finally gains focus*/
-    @Override
+  /*  @Override
     public void onFocusChange(View v, boolean hasFocus) {
         long t = System.currentTimeMillis();
         long delta = t - focusTime;
@@ -114,4 +115,5 @@ public class TableAdapter extends BaseAdapter implements View.OnFocusChangeListe
                 });
             }
         }
-    }}
+    }*/
+  }
