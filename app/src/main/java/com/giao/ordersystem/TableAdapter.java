@@ -52,7 +52,7 @@ public class TableAdapter extends BaseAdapter{
     @Override
     public View getView(final int position, View convertView, ViewGroup parent) {
         // TODO Auto-generated method stub
-        final Holder holder= new Holder();
+   /*     final Holder holder= new Holder();
      //   final long mTextLostFocusTimestamp = -1;
         View vi;
         if(convertView == null)
@@ -83,6 +83,15 @@ public class TableAdapter extends BaseAdapter{
  //           holder.edittext.setOnFocusChangeListener(this);
             vi.setTag(holder);
      //   }
+        return vi;*/
+        View vi = convertView;
+        if (vi == null) {
+            LayoutInflater inflater = (LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+            vi = inflater.inflate(R.layout.listview_layout, null, true);
+        }
+        mText=(EditText) vi.findViewById(R.id.EditTableEditText);
+        TableBO temp = (TableBO) data.get(position);
+        mText.setText(temp.getTableName());
         return vi;
     }
     public class Holder{EditText edittext; Button button;}
