@@ -12,16 +12,18 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 
 public class TableAdapter extends BaseAdapter{
     private Context context;
     private ArrayList<TableBO> data;
     private static LayoutInflater inflater = null;
-    private EditText mText;
+    private TextView mText;
+    private Button mButton;
  //   private final int minDelta;           // threshold in ms
-    private long focusTime;                 // time of last touch
-    private View focusTarget;
+ //   private long focusTime;                 // time of last touch
+ //   private View focusTarget;
     public TableAdapter(Context context, ArrayList<TableBO> data) {
         // TODO Auto-generated constructor stub
   //      minDelta = 300;           // threshold in ms
@@ -52,46 +54,25 @@ public class TableAdapter extends BaseAdapter{
     @Override
     public View getView(final int position, View convertView, ViewGroup parent) {
         // TODO Auto-generated method stub
-   /*     final Holder holder= new Holder();
-     //   final long mTextLostFocusTimestamp = -1;
-        View vi;
-        if(convertView == null)
-        {
-            LayoutInflater inflater = (LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            vi = inflater.inflate(R.layout.listview_layout, null, true);
-        }
-      //  else {
-
-            vi = convertView;
-            holder.edittext = (EditText) vi.findViewById(R.id.EditTableEditText);
-       //     mText=(EditText) vi.findViewById(R.id.EditTableEditText);
-            holder.button = (Button) vi.findViewById(R.id.DeleteTableButton);
-            TableBO temp = (TableBO) data.get(position);
-      //      mText.setText(temp.getTableName());
-            holder.edittext.setText(temp.getTableName());
-            holder.button.setTag(temp.getTableName());
-            holder.button.setTag(position);
-            holder.button.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    int index = (Integer) v.getTag();
-                    TableBO table = data.get(index);
-                    data.remove(table);
-                    notifyDataSetChanged();
-                }
-            });
- //           holder.edittext.setOnFocusChangeListener(this);
-            vi.setTag(holder);
-     //   }
-        return vi;*/
         View vi = convertView;
         if (vi == null) {
             LayoutInflater inflater = (LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             vi = inflater.inflate(R.layout.listview_layout, null, true);
         }
-        mText=(EditText) vi.findViewById(R.id.EditTableEditText);
         TableBO temp = (TableBO) data.get(position);
+        mText=(TextView) vi.findViewById(R.id.EditTableEditText);
+        mButton=(Button)vi.findViewById(R.id.DeleteTableButton);
         mText.setText(temp.getTableName());
+        mButton.setTag(position);
+        mButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int index = (Integer) v.getTag();
+                TableBO table = data.get(index);
+                data.remove(table);
+                notifyDataSetChanged();
+            }
+        });
         return vi;
     }
     public class Holder{EditText edittext; Button button;}

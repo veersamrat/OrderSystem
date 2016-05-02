@@ -3,24 +3,25 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#b1cef4">
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="60dip"
-            android:paddingTop="@dimen/activity_horizontal_margin"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:textAlignment="center"
-            android:text="Table"
-            android:textStyle="bold"
-            android:textSize="32sp"
-            android:textColor="#ffffff"
-            android:id="@+id/textView"
-            android:background="#3f51B5"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="70dip"
+        android:paddingTop="@dimen/activity_horizontal_margin"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textAlignment="center"
+        android:text="Setting"
+        android:textStyle="bold"
+        android:textSize="32sp"
+        android:textColor="#ffffff"
+        android:id="@+id/textView"
+        android:background="#3f51B5"
+        android:layout_weight="10"/>
         <ListView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:id="@+id/tableOrderListView"
             android:background="#ffffff"
-            android:layout_weight="50"
+            android:layout_weight="80"
             android:isScrollContainer="false"/>
 
     <LinearLayout
@@ -28,10 +29,11 @@
         android:layout_height="wrap_content">
     <Button
         android:layout_width="match_parent"
-        android:layout_height="50dip"
+        android:layout_height="45dip"
         android:background="#FFC61717"
         android:textColor="#ffffff"
-        android:textSize="40sp"
+        android:textSize="35sp"
+
         android:text="Home"
         android:id="@+id/homeButton"
         android:layout_gravity="center_horizontal"

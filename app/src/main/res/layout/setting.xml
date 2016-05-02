@@ -20,32 +20,29 @@
             android:background="#3f51B5">
             <TextView
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="70dip"
                 android:paddingTop="@dimen/activity_horizontal_margin"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:textAlignment="center"
                 android:text="Setting"
                 android:textStyle="bold"
-                android:textSize="32dp"
+                android:textSize="32sp"
                 android:textColor="#ffffff"
-                android:id="@+id/textView" />
+                android:id="@+id/textView"
+                android:background="#3f51B5"/>
         </LinearLayout>
         <LinearLayout
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="90"
-            android:layout_marginLeft="25dp"
-            android:layout_marginRight="25dp"
+            android:layout_weight="80"
             android:gravity="center_horizontal"
             android:weightSum="100">
             <LinearLayout
                 android:orientation="vertical"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="25dp"
-                android:layout_marginRight="25dp"
-                android:layout_weight="40"
+                android:layout_height="match_parent"
+                android:layout_weight="50"
                 android:weightSum="100">
                 <LinearLayout
                     android:orientation="horizontal"
@@ -80,8 +77,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="left"
-                    android:paddingLeft="5dp"
-                    android:paddingRight="5dp"
                     android:layout_weight="80">
                     <ListView
                     android:layout_width="match_parent"
@@ -90,16 +85,14 @@
                     android:divider="#b5b5b5"
                     android:dividerHeight="1dp"
                     android:id="@+id/tableListView"
-                        android:isScrollContainer="false"/>
+                    android:isScrollContainer="false"/>
                 </LinearLayout>
             </LinearLayout>
             <LinearLayout
                 android:orientation="vertical"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="25dp"
-                android:layout_marginRight="25dp"
-                android:layout_weight="40"
+                android:layout_height="match_parent"
+                android:layout_weight="50"
                 android:weightSum="100">
                 <LinearLayout
                     android:orientation="horizontal"
@@ -111,7 +104,7 @@
                     android:paddingLeft="5dp"
                     android:weightSum="100">
                         <EditText
-                            android:layout_width="wrap_content"
+                            android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:id="@+id/categoryEditText"
                             android:paddingLeft="5dp"
@@ -132,14 +125,12 @@
                 <LinearLayout
                     android:orientation="horizontal"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:layout_gravity="left"
-                    android:paddingLeft="5dp"
-                    android:paddingRight="5dp"
                     android:layout_weight="80">
                 <ListView
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
                     android:background="#ffffff"
                     android:divider="#b5b5b5"
                     android:dividerHeight="1dp"
@@ -148,41 +139,38 @@
                     </LinearLayout>
 
             </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="25dp"
-                android:layout_marginRight="25dp"
-                android:gravity="center_horizontal"
-                android:layout_weight="20">
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="55dip"
+            android:gravity="center_horizontal"
+            android:layout_weight="10" >
             <TableLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:layout_marginBottom="20dp">
+                android:layout_height="match_parent">
                 <TableRow>
                     <Button
                         android:layout_width="match_parent"
-                        android:layout_height="50dp"
+                        android:layout_height="match_parent"
                         android:background="#FFC61717"
                         android:textColor="#ffffff"
-                        android:textSize="40sp"
+                        android:textSize="35sp"
                         android:text="Save"
                         android:id="@+id/saveButton"
                         android:layout_weight="5"/>
                     <Button
                         android:layout_width="match_parent"
-                        android:layout_height="50dp"
+                        android:layout_height="match_parent"
                         android:layout_marginLeft="5dp"
                         android:background="#FFC61717"
                         android:textColor="#ffffff"
-                        android:textSize="40sp"
+                        android:textSize="35sp"
                         android:text="Home"
                         android:id="@+id/homeButton"
                         android:layout_weight="5" />
                 </TableRow>
             </TableLayout>
-            </LinearLayout>
         </LinearLayout>
     </LinearLayout>
 </RelativeLayout>

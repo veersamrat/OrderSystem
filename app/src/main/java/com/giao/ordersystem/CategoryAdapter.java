@@ -11,24 +11,28 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
-public class CategoryAdapter extends BaseAdapter implements View.OnFocusChangeListener{
+public class CategoryAdapter extends BaseAdapter{
     private Context context;
     private ArrayList<CategoryBO> data;
     private static LayoutInflater inflater = null;
-    private EditText mText;
-    private final int minDelta;           // threshold in ms
-    private long focusTime;                 // time of last touch
-    private View focusTarget;
+    private TextView mText;
+    private Button mButton;
+
+    //    private final int minDelta;           // threshold in ms
+//    private long focusTime;                 // time of last touch
+//   private View focusTarget;
     public CategoryAdapter(Context context, ArrayList<CategoryBO> data) {
         // TODO Auto-generated constructor stub
-        minDelta = 300;           // threshold in ms
-        focusTime = 0;                 // time of last touch
+//        minDelta = 300;           // threshold in ms
+//        focusTime = 0;                 // time of last touch
         View focusTarget = null;
         this.context = context;
-        this.data= new ArrayList<CategoryBO>(data);
+        this.data = new ArrayList<CategoryBO>(data);
 
     }
+
     @Override
     public int getCount() {
         // TODO Auto-generated method stub
@@ -49,7 +53,27 @@ public class CategoryAdapter extends BaseAdapter implements View.OnFocusChangeLi
 
     @Override
     public View getView(final int position, View convertView, ViewGroup parent) {
-        // TODO Auto-generated method stub
+        View vi = convertView;
+        if (vi == null) {
+            LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+            vi = inflater.inflate(R.layout.listview_layout2, null, true);
+        }
+        CategoryBO temp = (CategoryBO) data.get(position);
+        mText = (TextView) vi.findViewById(R.id.EditCategoryEditText);
+        mButton = (Button) vi.findViewById(R.id.DeleteCategoryButton);
+        mText.setText(temp.getCategoryName());
+        mButton.setTag(position);
+        mButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int index = (Integer) v.getTag();
+                CategoryBO category = data.get(index);
+                data.remove(category);
+                notifyDataSetChanged();
+            }
+        });
+        return vi;
+ /*       // TODO Auto-generated method stub
         final Holder holder= new Holder();
         final long mTextLostFocusTimestamp = -1;
         View vi;
@@ -81,9 +105,9 @@ public class CategoryAdapter extends BaseAdapter implements View.OnFocusChangeLi
             holder.edittext.setOnFocusChangeListener(this);
             vi.setTag(holder);
         }
-        return vi;
+        return vi;*/
     }
-    public class Holder{EditText edittext; Button button;}
+    //   public class Holder{EditText edittext; Button button;}
 
     //This Listener used to keep enable the edit mode of EditText
     /*If focus was on a different view, then that view loses focus
@@ -94,7 +118,7 @@ public class CategoryAdapter extends BaseAdapter implements View.OnFocusChangeLi
     6. the leftmost, topmost view gains focus, due to Android nonsense
     7. the leftmost view loses focus, due to requestFocus being called
     8. target finally gains focus*/
-    @Override
+ /*   @Override
     public void onFocusChange(View v, boolean hasFocus) {
         long t = System.currentTimeMillis();
         long delta = t - focusTime;
@@ -113,5 +137,6 @@ public class CategoryAdapter extends BaseAdapter implements View.OnFocusChangeLi
                 });
             }
         }
-    }
+    }*/
+
 }
