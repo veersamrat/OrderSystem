@@ -2,12 +2,11 @@ package com.giao.ordersystem;
 
 import android.app.Activity;
 import android.content.Context;
-import android.content.Intent;
-import android.view.View;
-import android.widget.AdapterView;
-import android.widget.EditText;
+
 import android.widget.ListView;
 import android.widget.Toast;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -69,20 +68,43 @@ public class Setting_Event extends Activity {
             categoryDAO.close();
         }
     }
+    private AlertDialog.Builder build;
     public void saveButton_Click(ArrayList<TableBO> tableCollection, ArrayList<CategoryBO> categoryCollection)
     {
+        //Display Dialog
+   /*     build = new AlertDialog.Builder(context);
+        build.setTitle("Save");
+        build.setMessage("Do you want to save ?");
+        build.setNegativeButton("No", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.cancel();
+                return;
+            }
+        });
+        AlertDialog alert = build.create();
+        alert.show();*/
         //remove all
+        tableDAO.open();
         tableDAO.removeAll();
+        tableDAO.close();
+        categoryDAO.open();
         categoryDAO.removeAll();
+        categoryDAO.close();
         //then insert all
+        tableDAO.open();
         for(TableBO tb:tableCollection)
         {
-            //Insert each row
+            tableDAO.create(tb.getTableName());
         }
+        tableDAO.close();
+        categoryDAO.open();
         for(CategoryBO ct:categoryCollection)
         {
+            categoryDAO.create(ct.getCategoryName());
             //Insert each row
         }
+        categoryDAO.close();
+
     }
     public void homeButton_Click() {
         System.exit(1);

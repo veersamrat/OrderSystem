@@ -9,6 +9,7 @@ import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ListAdapter;
 import android.widget.ListView;
 import java.util.ArrayList;
 import java.util.ServiceLoader;
@@ -65,7 +66,7 @@ public class Setting extends Activity{
             @Override
             public void onClick(View v) {
                 String categoryName=categoryEditText.getText().toString();
-                event.addCategoryButton_Click(categoryName,catetoryListView);      }
+                event.addCategoryButton_Click(categoryName, catetoryListView);      }
         });
         //SaveButton, OnClickListener
         saveButton=(Button)findViewById(R.id.saveButton);
@@ -73,8 +74,19 @@ public class Setting extends Activity{
             @Override
             public void onClick(View v) {
                 ArrayList<TableBO> tableCollection = new ArrayList<TableBO>();
+                ListAdapter tableList= tableListView.getAdapter();
+                for(int i=0;i<tableList.getCount();i++)
+                {
+                    tableCollection.add((TableBO) tableList.getItem(i));
+                }
                 ArrayList<CategoryBO> categoryCollection=new ArrayList<CategoryBO>();
-                event.saveButton_Click(tableCollection,categoryCollection);
+                ListAdapter categoryList= catetoryListView.getAdapter();
+                for(int i=0;i<categoryList.getCount();i++)
+                {
+                    categoryCollection.add((CategoryBO)categoryList.getItem(i));
+                }
+
+                event.saveButton_Click(tableCollection, categoryCollection);
             }
         });
         //HomeButton, OnClickListener
