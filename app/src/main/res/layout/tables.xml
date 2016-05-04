@@ -33,7 +33,6 @@
         android:background="#FFC61717"
         android:textColor="#ffffff"
         android:textSize="35sp"
-
         android:text="Home"
         android:id="@+id/homeButton"
         android:layout_gravity="center_horizontal"

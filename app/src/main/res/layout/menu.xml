@@ -7,92 +7,97 @@
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:weightSum="100"
-        android:background="#b1cef4">
+        android:background="#FFA4A8BE"
+        android:weightSum="100">
         <LinearLayout
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="5"
-            android:background="#3f51B5">
+            android:layout_weight="10"
+            android:background="#3f51B5"
+            android:layout_gravity="top">
             <TextView
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="70dip"
                 android:paddingTop="@dimen/activity_horizontal_margin"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:textAlignment="center"
                 android:text="Menu"
                 android:textStyle="bold"
-                android:textSize="32dp"
+                android:textSize="32sp"
                 android:textColor="#ffffff"
-                android:id="@+id/SelectecItemtextView" />
+                android:id="@+id/SelectecItemtextView"
+                android:background="#3f51B5"
+                android:layout_gravity="top"/>
         </LinearLayout>
         <LinearLayout
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="95"
-            android:layout_marginLeft="25dp"
-            android:layout_marginRight="25dp"
+            android:layout_weight="90"
             android:gravity="center_horizontal"
-            android:weightSum="100">
-
+            android:weightSum="95">
             <Spinner
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/categorySpinner"
                 android:spinnerMode="dropdown"
                 android:clickable="true"
-                android:layout_marginTop="10dp"
                 android:layout_marginBottom="5dp"
+                android:layout_weight="10"
+                android:textColor="#000000"
                 android:background="#ffffff"
+                android:divider="#b5b5b5"
+                android:dividerHeight="1dp"
                 />
-
             <ListView
                 android:layout_width="match_parent"
-                android:layout_height="0dip"
+                android:layout_height="match_parent"
                 android:id="@+id/categorylistView"
                 android:background="#ffffff"
-                android:layout_weight="72"/>
+                android:layout_weight="80"
+                android:isScrollContainer="false"
+                android:divider="#b5b5b5"
+                android:dividerHeight="1dp"/>
+        </LinearLayout>
             <TableLayout
                 android:layout_width="match_parent"
-                android:layout_height="0dip"
-                android:layout_marginTop="5dp"
-                android:layout_marginBottom="10dp"
-                android:layout_weight="12">
+                android:layout_height="wrap_content"
+                android:layout_weight="5"
+                android:layout_gravity="bottom">
                 <TableRow>
                     <Button
                         android:layout_width="match_parent"
-                        android:layout_height="50dp"
+                        android:layout_height="45dip"
                         android:background="#FFC61717"
                         android:textColor="#ffffff"
-                        android:textSize="40sp"
+                        android:textSize="35sp"
                         android:text="Add"
                         android:id="@+id/addMenuButton"
-                        android:layout_weight="5"/>
+                        android:layout_weight="1"/>
                     <Button
                         android:layout_width="match_parent"
-                        android:layout_height="50dp"
+                        android:layout_height="45dip"
                         android:background="#FFC61717"
                         android:textColor="#ffffff"
-                        android:textSize="40sp"
+                        android:textSize="35sp"
                         android:layout_marginLeft="5dp"
                         android:text="Save"
                         android:id="@+id/saveMenuButton"
-                        android:layout_weight="5"/>
+                        android:layout_weight="1"/>
                     <Button
                         android:layout_width="match_parent"
-                        android:layout_height="50dp"
-                        android:layout_marginLeft="5dp"
+                        android:layout_height="45dip"
                         android:background="#FFC61717"
                         android:textColor="#ffffff"
-                        android:textSize="40sp"
+                        android:textSize="35sp"
+                        android:layout_marginLeft="5dp"
                         android:text="Home"
                         android:id="@+id/homeButton"
                         android:layout_gravity="center_horizontal"
-                        android:layout_weight="5" />
+                        android:layout_weight="1" />
                 </TableRow>
             </TableLayout>
-        </LinearLayout>
+
     </LinearLayout>
 </RelativeLayout>
