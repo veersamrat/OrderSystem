@@ -33,7 +33,7 @@ public class DishDAO {
     }
 
     public void close() throws SQLException {
-        this.close();
+        databaseHelper.close();
     }
 
     public long create(String categoryID, String dishName, String dishPrice, String dishDecription, String availability) throws SQLException {
@@ -42,12 +42,12 @@ public class DishDAO {
         cv.put(DISH_NAME, dishName);
         cv.put(DISH_PRICE, dishPrice);
         cv.put(DISH_DESCRIPTION, dishDecription);
-        cv.put(DISH_AVAILABILITY,availability);
+        cv.put(DISH_AVAILABILITY, availability);
         return database.insert(DATABASE_TABLE, null, cv);
     }
 
     public List<DishBO> list() throws SQLException {
-        String query = "SELECT * FROM Tables";
+        String query = "SELECT * FROM Menu";
         Cursor cur = database.rawQuery(query, null);
         List<DishBO> list = new ArrayList<DishBO>();
         int iRow = cur.getColumnIndex(KEY_ROWID);
@@ -59,6 +59,32 @@ public class DishDAO {
         cur.close();
         return list;
     }
+    public List<DishBO> list(String categoryName) throws SQLException {
+        String query = "SELECT * FROM Menu WHERE CategoryName='"+categoryName+"'";
+        Cursor cur = database.rawQuery(query, null);
+        List<DishBO> list = new ArrayList<DishBO>();
+        int iRow = cur.getColumnIndex(KEY_ROWID);
+        for (cur.moveToFirst(); !cur.isAfterLast(); cur.moveToNext()) {
+            DishBO record = new DishBO(Integer.parseInt(cur.getString(0)), Integer.parseInt(cur.getString(1)), cur.getString(2)
+                    , Integer.parseInt(cur.getString(3)), cur.getString(4),Integer.parseInt(cur.getString(5)));
+            list.add(record);
+        }
+        cur.close();
+        return list;
+    }
+    public DishBO itemDish(String dishID) throws SQLException {
+        String query = "SELECT * FROM Menu WHERE DishID='"+dishID+"'";
+        Cursor cur = database.rawQuery(query, null);
+        List<DishBO> list = new ArrayList<DishBO>();
+        int iRow = cur.getColumnIndex(KEY_ROWID);
+        DishBO record= new DishBO();
+        for (cur.moveToFirst(); !cur.isAfterLast(); cur.moveToNext()) {
+            record = new DishBO(Integer.parseInt(cur.getString(0)), Integer.parseInt(cur.getString(1)), cur.getString(2)
+                    , Integer.parseInt(cur.getString(3)), cur.getString(4),Integer.parseInt(cur.getString(5)));
+            cur.close();
+        }
+        return record;
+    }
 
     public boolean remove(int dishID) throws SQLException {
         return database.delete(DATABASE_TABLE, KEY_ROWID + "=" + dishID, null) > 0;
@@ -68,7 +94,7 @@ public class DishDAO {
         return database.delete(DATABASE_TABLE, null, null) > 0;
     }
 
-    public long update(String dishID, String categoryID, String dishName, String dishPrice, String dishDecription) throws SQLException
+    public long update(String dishID, String categoryID, String dishName, String dishPrice, String dishDecription, boolean dishAvailability) throws SQLException
     {
         ContentValues cv = new ContentValues();
         if (categoryID != null)
@@ -79,6 +105,7 @@ public class DishDAO {
             cv.put(DISH_PRICE, dishPrice);
         if (dishDecription != null)
             cv.put(DISH_DESCRIPTION, dishDecription);
+            cv.put(DISH_AVAILABILITY,dishAvailability);
         return database.update(DATABASE_TABLE, cv, KEY_ROWID + "=?", new String[]{dishID});
     }
 }

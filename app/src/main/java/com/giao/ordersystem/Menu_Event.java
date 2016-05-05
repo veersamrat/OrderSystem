@@ -15,12 +15,14 @@ package com.giao.ordersystem;
 public class Menu_Event extends Activity {
     private Context context;
     private CategoryDAO categoryDAO;
+    private DishDAO dishDAO;
     public Menu_Event()
     {}
     public Menu_Event(Context context)
     {
         this.context=context;
         categoryDAO = new CategoryDAO(context);
+        dishDAO=new DishDAO(context);
     }
     public void categoryListView_OnLoad(Spinner categorySpinner)
     {
@@ -34,6 +36,12 @@ public class Menu_Event extends Activity {
         ArrayAdapter<String> categoryAdapter =  new ArrayAdapter<String>(context,android.R.layout.simple_spinner_item,categoryList);
         categoryAdapter.setDropDownViewResource(R.layout.simple_spinner_dropdown_item);
         categorySpinner.setAdapter(categoryAdapter);
+    }
+    public void DishListView_OnLoad(ListView dishListView)
+    {
+        dishDAO.open();
+
+        dishDAO.close();
     }
     public void homButton_OnClick()
     {

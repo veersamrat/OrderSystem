@@ -52,7 +52,7 @@
             <ListView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:id="@+id/categorylistView"
+                android:id="@+id/dishListView"
                 android:background="#ffffff"
                 android:layout_weight="80"
                 android:isScrollContainer="false"
@@ -72,17 +72,7 @@
                         android:textColor="#ffffff"
                         android:textSize="35sp"
                         android:text="Add"
-                        android:id="@+id/addMenuButton"
-                        android:layout_weight="1"/>
-                    <Button
-                        android:layout_width="match_parent"
-                        android:layout_height="45dip"
-                        android:background="#FFC61717"
-                        android:textColor="#ffffff"
-                        android:textSize="35sp"
-                        android:layout_marginLeft="5dp"
-                        android:text="Save"
-                        android:id="@+id/saveMenuButton"
+                        android:id="@+id/addDishButton"
                         android:layout_weight="1"/>
                     <Button
                         android:layout_width="match_parent"

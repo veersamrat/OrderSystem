@@ -37,6 +37,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public static final String DishName="DishName";
     public static final String DishPrice="DishPrice";
     public static final String DishDescription="DishDescription";
+    public static final String DishAvailability="DishAvailability";
     private static final int DATABASE_VERSION=2;
     public DatabaseHelper(Context context)
     {super(context,DATABASE_NAME,null,DATABASE_VERSION);}
@@ -63,6 +64,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 + DishName+ " TEXT NOT NULL, "
                 + DishPrice+ " REAL, "
                 + DishDescription+ " TEXT "
+                + DishAvailability+ " TEXT"
                 +");";
         String CreateTABLE_ORDERDETAIL="CREATE TABLE IF NOT EXISTS "+TABLE_ORDERDETAIL+" ("+OrderDetailID+" INTEGER PRIMARY KEY AUTOINCREMENT, "
                 + OrderDetail_OrderID+ " TEXT NOT NULL, "
