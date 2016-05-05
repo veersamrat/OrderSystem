@@ -1,5 +1,6 @@
 package com.giao.ordersystem;
 import android.app.Activity;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.R.*;
@@ -23,8 +24,8 @@ public class Menu extends Activity{
         categorySpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
-                TextView SelectecItemtextView=(TextView)findViewById(R.id.SelectecItemtextView);
-                SelectecItemtextView.setText(categorySpinner.getSelectedItem().toString());
+                //Set the selected catogory into Red
+                ((TextView)parentView.getChildAt(0)).setTextColor(Color.rgb(255, 000,000));
                 // your code here
             }
             @Override

@@ -32,8 +32,8 @@ public class Menu_Event extends Activity {
         }
         categoryDAO.close();
         ArrayAdapter<String> categoryAdapter =  new ArrayAdapter<String>(context,android.R.layout.simple_spinner_item,categoryList);
+        categoryAdapter.setDropDownViewResource(R.layout.simple_spinner_dropdown_item);
         categorySpinner.setAdapter(categoryAdapter);
-        categoryAdapter.notifyDataSetChanged();
     }
     public void homButton_OnClick()
     {
