@@ -46,10 +46,10 @@ public class DishDAO {
         return database.insert(DATABASE_TABLE, null, cv);
     }
 
-    public List<DishBO> list() throws SQLException {
+    public ArrayList<DishBO> list() throws SQLException {
         String query = "SELECT * FROM Menu";
         Cursor cur = database.rawQuery(query, null);
-        List<DishBO> list = new ArrayList<DishBO>();
+        ArrayList<DishBO> list = new ArrayList<DishBO>();
         int iRow = cur.getColumnIndex(KEY_ROWID);
         for (cur.moveToFirst(); !cur.isAfterLast(); cur.moveToNext()) {
             DishBO record = new DishBO(Integer.parseInt(cur.getString(0)), Integer.parseInt(cur.getString(1)), cur.getString(2)
@@ -59,10 +59,10 @@ public class DishDAO {
         cur.close();
         return list;
     }
-    public List<DishBO> list(String categoryName) throws SQLException {
+    public ArrayList<DishBO> list(String categoryName) throws SQLException {
         String query = "SELECT * FROM Menu WHERE CategoryName='"+categoryName+"'";
         Cursor cur = database.rawQuery(query, null);
-        List<DishBO> list = new ArrayList<DishBO>();
+        ArrayList<DishBO> list = new ArrayList<DishBO>();
         int iRow = cur.getColumnIndex(KEY_ROWID);
         for (cur.moveToFirst(); !cur.isAfterLast(); cur.moveToNext()) {
             DishBO record = new DishBO(Integer.parseInt(cur.getString(0)), Integer.parseInt(cur.getString(1)), cur.getString(2)
@@ -94,7 +94,7 @@ public class DishDAO {
         return database.delete(DATABASE_TABLE, null, null) > 0;
     }
 
-    public long update(String dishID, String categoryID, String dishName, String dishPrice, String dishDecription, boolean dishAvailability) throws SQLException
+    public long update(String dishID, String categoryID, String dishName, String dishPrice, String dishDecription, int dishAvailability) throws SQLException
     {
         ContentValues cv = new ContentValues();
         if (categoryID != null)

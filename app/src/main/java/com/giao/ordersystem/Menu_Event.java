@@ -2,6 +2,7 @@ package com.giao.ordersystem;
 
         import android.app.Activity;
         import android.content.Context;
+        import android.content.Intent;
         import android.widget.ArrayAdapter;
         import android.widget.ListView;
         import android.widget.Spinner;
@@ -37,11 +38,20 @@ public class Menu_Event extends Activity {
         categoryAdapter.setDropDownViewResource(R.layout.simple_spinner_dropdown_item);
         categorySpinner.setAdapter(categoryAdapter);
     }
-    public void DishListView_OnLoad(ListView dishListView)
+    public void DishListView_OnLoad(ListView dishListView, String categoryName)
     {
         dishDAO.open();
-
+        DishAdapter tableAdapter = new DishAdapter(context, dishDAO.list(categoryName));
+        dishListView.setAdapter(tableAdapter);
         dishDAO.close();
+        tableAdapter.notifyDataSetChanged();
+
+    }
+    public void addDishButton_Onclick()
+    {
+        Intent addDishIntent = new Intent("com.giao.ordersystem.AddDish");
+        addDishIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        context.startActivity(addDishIntent);
     }
     public void homButton_OnClick()
     {

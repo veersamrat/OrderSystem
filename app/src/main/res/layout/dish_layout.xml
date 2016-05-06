@@ -2,16 +2,15 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="wrap_content"
-    android:background="@drawable/list_selector"
     android:orientation="horizontal"
     android:padding="5dip"
     android:weightSum="100">
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/EditTableEditText"
-        android:layout_weight="85"
-        android:layout_toLeftOf="@+id/DeleteDishButton"
+        android:id="@+id/EditDishEditText"
+        android:layout_weight="80"
+        android:layout_toLeftOf="@+id/EditDishButton"
         android:singleLine="true"
         android:textColor="#000000"
         android:inputType="text"/>
@@ -19,10 +18,10 @@
         style="?android:attr/buttonStyleSmall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Delete"
-        android:id="@+id/EditDishButton"
-        android:layout_weight="15"
-        android:layout_alignBottom="@+id/EditTableEditText"
+        android:text="Detail"
+        android:id="@+id/DetailDishButton"
+        android:layout_weight="10"
+        android:layout_toLeftOf="@+id/DeleteDishEditText"
         android:contentDescription="TableName" />
     <Button
     style="?android:attr/buttonStyleSmall"
@@ -30,7 +29,7 @@
     android:layout_height="wrap_content"
     android:text="Delete"
     android:id="@+id/DeleteDishButton"
-    android:layout_weight="15"
+    android:layout_weight="10"
     android:layout_alignBottom="@+id/EditDishEditText"
     android:contentDescription="TableName" />
 </LinearLayout>

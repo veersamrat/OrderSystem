@@ -40,6 +40,13 @@ public class Menu extends Activity{
             }
 
         });
+        addDishButton=(Button)findViewById(R.id.addDishButton);
+        addDishButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                event.addDishButton_Onclick();
+            }
+        });
         homeButton=(Button)findViewById(R.id.homeButton);
         homeButton.setOnClickListener(new View.OnClickListener() {
             @Override
