@@ -2,6 +2,7 @@ package com.giao.ordersystem;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.widget.Toast;
 
 /**
@@ -34,7 +35,10 @@ public class AddDish_Event extends Activity {
     }
     public void homeButton_OnClick()
     {
-        System.exit(1);
-        finish();
+     //   Intent intent = new Intent("com.giao.ordersystem.Menu");
+      //  intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+     //   context.startActivity(intent);
+      //  System.exit(2);
+        finishActivity(1);
     }
 }

@@ -25,8 +25,8 @@ public class Menu extends Activity{
         categorySpinner = (Spinner) findViewById(R.id.categorySpinner);
         homeButton=(Button)findViewById(R.id.homeButton);
         addDishButton=(Button)findViewById(R.id.addDishButton);
-
-        event.categoryListView_OnLoad(categorySpinner);
+        //Load data to Spinner Category
+        event.categorySpinner_OnLoad(categorySpinner);
         categorySpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {

@@ -32,7 +32,7 @@ public class MainActivity_Event extends Activity {
     }
 
     public void menuButton_Click() {
-        Intent orderIntent = new Intent("com.giao.ordersystem.Menu");
+        Intent orderIntent = new Intent(context,Menu.class);
         orderIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         context.startActivity(orderIntent);
     }

@@ -25,7 +25,7 @@ public class Menu_Event extends Activity {
         categoryDAO = new CategoryDAO(context);
         dishDAO=new DishDAO(context);
     }
-    public void categoryListView_OnLoad(Spinner categorySpinner)
+    public void categorySpinner_OnLoad(Spinner categorySpinner)
     {
         categoryDAO.open();
         ArrayList<String> categoryList = new ArrayList<String>();
@@ -49,7 +49,7 @@ public class Menu_Event extends Activity {
     }
     public void addDishButton_Onclick()
     {
-        Intent addDishIntent = new Intent("com.giao.ordersystem.AddDish");
+        Intent addDishIntent = new Intent(context, AddDish.class);
         addDishIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         context.startActivity(addDishIntent);
     }
