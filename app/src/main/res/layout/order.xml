@@ -36,8 +36,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="95"
-            android:layout_marginLeft="25dp"
-            android:layout_marginRight="25dp"
             android:gravity="center_horizontal"
             android:weightSum="100">
 
@@ -45,7 +43,6 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:id="@+id/spinner"
-                        android:layout_marginTop="10dp"
                         android:layout_marginBottom="5dp"
                         android:background="#ffffff"
                         android:layout_weight="5"/>
@@ -57,35 +54,20 @@
                         android:id="@+id/tableListView2"
                         android:background="#ffffff"
                         android:layout_weight="90"/>
-            <TableLayout
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:layout_marginBottom="20dp"
-                android:layout_weight="5">
-                <TableRow>
-                <Button
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:background="#FFC61717"
-                    android:textColor="#ffffff"
-                    android:textSize="40sp"
-                    android:text="Send"
-                    android:id="@+id/sendButton"
-                    android:layout_weight="5"/>
-                <Button
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:layout_marginLeft="5dp"
-                    android:background="#FFC61717"
-                    android:textColor="#ffffff"
-                    android:textSize="40sp"
-                    android:text="Home"
-                    android:id="@+id/homeButton2"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_weight="5" />
-                </TableRow>
-            </TableLayout>
+                android:layout_height="wrap_content">
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="45dip"
+                android:background="#FFC61717"
+                android:textColor="#ffffff"
+                android:textSize="35sp"
+                android:text="Home"
+                android:id="@+id/homeButton"
+                android:layout_gravity="center_horizontal"
+                android:layout_weight="10"/>
+        </LinearLayout>
         </LinearLayout>
     </LinearLayout>
 </RelativeLayout>

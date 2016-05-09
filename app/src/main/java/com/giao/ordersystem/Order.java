@@ -33,12 +33,11 @@ public class Order extends Activity{
             public void onNothingSelected(AdapterView<?> parentView) {
                 // your code here
             }
-
         }
 
         );
         tables_event.tableListView_OnLoad(tableListView);
-        homeButton=(Button)findViewById(R.id.homeButton2);
+        homeButton=(Button)findViewById(R.id.homeButton);
         homeButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

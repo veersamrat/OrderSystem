@@ -9,7 +9,7 @@
         android:paddingTop="@dimen/activity_horizontal_margin"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:textAlignment="center"
-        android:text="Setting"
+        android:text="Pay and Move"
         android:textStyle="bold"
         android:textSize="32sp"
         android:textColor="#ffffff"

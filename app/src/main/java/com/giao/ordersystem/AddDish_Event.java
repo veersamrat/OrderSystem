@@ -35,10 +35,8 @@ public class AddDish_Event extends Activity {
     }
     public void homeButton_OnClick()
     {
-     //   Intent intent = new Intent("com.giao.ordersystem.Menu");
-      //  intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-     //   context.startActivity(intent);
-      //  System.exit(2);
+        System.exit(2);
         finishActivity(1);
+       // finish();
     }
 }

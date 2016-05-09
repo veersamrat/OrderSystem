@@ -44,7 +44,7 @@ public class Menu extends Activity{
         addDishButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                event.addDishButton_Onclick();
+                event.addDishButton_Onclick(categorySpinner.getSelectedItem().toString());
             }
         });
         homeButton=(Button)findViewById(R.id.homeButton);

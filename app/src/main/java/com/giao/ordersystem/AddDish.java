@@ -21,15 +21,29 @@ public class AddDish extends Activity {
     private EditText priceEditText;
     private EditText desciptionEditText;
     private EditText availabilityEditText;
+    private String categoryName;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.add_dish);
+        //get categoryName
+        Bundle extras = getIntent().getExtras();
+        if(extras !=null)
+        {
+            categoryName = extras.getString("categoryName");
+        }
+
+        //Declare new AddDish_Event
         event=new AddDish_Event(getApplicationContext());
+        //Declare new Controls
         categoryNameTextView=(TextView)findViewById(R.id.category_dishTextView);
         dishNameEditText=(EditText)findViewById(R.id.dishNameEditText);
         priceEditText=(EditText)findViewById(R.id.priceEditText);
         desciptionEditText=(EditText)findViewById(R.id.descriptionEditText);
         availabilityEditText=(EditText)findViewById(R.id.availabilityEditText);
+        //set categoryName to TextView
+        categoryNameTextView.setText(categoryName);
+        //Add events
+        //addDishButton ONCLICK event
         addDishButtonOK=(Button)findViewById(R.id.addDishButtonOK);
         addDishButtonOK.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -42,6 +56,7 @@ public class AddDish extends Activity {
                 event.addDishButtonOK_OnClick(category,name,price,description,availability);
             }
         });
+        //homeButton ONCLICK event
         homeButton=(Button)findViewById(R.id.homeButton);
         homeButton.setOnClickListener(new View.OnClickListener() {
             @Override
