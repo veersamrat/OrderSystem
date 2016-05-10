@@ -17,6 +17,7 @@ public class Menu extends Activity{
     private static Button homeButton;
     private static Button addDishButton;
     private static ListView dishListView;
+    private static String selectedCategory;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,6 +33,7 @@ public class Menu extends Activity{
             public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
                 //Set the selected catogory into Red
                 ((TextView)parentView.getChildAt(0)).setTextColor(Color.rgb(255, 000, 000));
+                selectedCategory=parentView.getItemAtPosition(position).toString();
                 // your code here
             }
             @Override
@@ -44,7 +46,8 @@ public class Menu extends Activity{
         addDishButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                event.addDishButton_Onclick(categorySpinner.getSelectedItem().toString());
+                String categoryName=selectedCategory;
+                event.addDishButton_Onclick(categoryName);
             }
         });
         homeButton=(Button)findViewById(R.id.homeButton);

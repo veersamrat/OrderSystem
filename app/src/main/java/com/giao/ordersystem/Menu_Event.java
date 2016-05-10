@@ -50,14 +50,14 @@ public class Menu_Event extends Activity {
     public void addDishButton_Onclick(String categoryName)
     {
         Intent addDishIntent = new Intent(context, AddDish.class);
-       addDishIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        addDishIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         addDishIntent.putExtra("categoryName", categoryName);
         context.startActivity(addDishIntent);
-
     }
     public void homButton_OnClick()
     {
-        System.exit(1);
         finish();
+        System.exit(1);
+
     }
 }

@@ -35,8 +35,10 @@ public class AddDish_Event extends Activity {
     }
     public void homeButton_OnClick()
     {
-        System.exit(2);
-        finishActivity(1);
+        finish();
+     //   finishActivity(1);
+        System.exit(1);
+
        // finish();
     }
 }
