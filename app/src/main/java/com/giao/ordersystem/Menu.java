@@ -9,6 +9,8 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.content.Context;
+import android.content.Intent;
 import android.widget.Toast;
 
 public class Menu extends Activity{
@@ -17,7 +19,7 @@ public class Menu extends Activity{
     private static Button homeButton;
     private static Button addDishButton;
     private static ListView dishListView;
-    private static String selectedCategory;
+    private String selectedCategory;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,6 +30,7 @@ public class Menu extends Activity{
         addDishButton=(Button)findViewById(R.id.addDishButton);
         //Load data to Spinner Category
         event.categorySpinner_OnLoad(categorySpinner);
+        selectedCategory=categorySpinner.getItemAtPosition(0).toString();
         categorySpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
@@ -54,7 +57,8 @@ public class Menu extends Activity{
         homeButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                event.homButton_OnClick();
+                //event.homButton_OnClick();
+                onBackPressed();
             }
         });
     }

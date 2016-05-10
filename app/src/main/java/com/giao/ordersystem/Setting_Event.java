@@ -106,8 +106,7 @@ public class Setting_Event extends Activity {
         categoryDAO.close();
 
     }
-    public void homeButton_Click() {
-        System.exit(1);
-        finish();
-    }
+  /*  public void homeButton_Click() {
+        onBackPressed();
+    }*/
 }

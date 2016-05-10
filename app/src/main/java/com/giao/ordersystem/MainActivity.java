@@ -19,7 +19,7 @@ public class MainActivity extends Activity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
-        event=new MainActivity_Event(getApplicationContext());
+        event=new MainActivity_Event(getBaseContext());
         Init();
         Init_Database();
     }

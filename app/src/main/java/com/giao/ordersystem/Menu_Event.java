@@ -53,11 +53,10 @@ public class Menu_Event extends Activity {
         addDishIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         addDishIntent.putExtra("categoryName", categoryName);
         context.startActivity(addDishIntent);
-    }
-    public void homButton_OnClick()
-    {
         finish();
-        System.exit(1);
-
     }
+ /* public void homButton_OnClick()
+    {
+        onBackPressed();
+    }*/
 }

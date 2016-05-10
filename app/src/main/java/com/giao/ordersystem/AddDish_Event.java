@@ -33,12 +33,9 @@ public class AddDish_Event extends Activity {
             dishDAO.close();
     }
     }
-    public void homeButton_OnClick()
+ /*   public void homeButton_OnClick()
     {
-        finish();
-     //   finishActivity(1);
-        System.exit(1);
+        onBackPressed();
 
-       // finish();
-    }
+    }*/
 }

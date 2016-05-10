@@ -16,9 +16,8 @@ public class Order_Event extends Activity {
         this.context=context;
         orderDAO= new OrderDAO(context);
     }
-    public void homButton_OnClick()
+ /*   public void homButton_OnClick()
     {
-        System.exit(1);
-        finish();
-    }
+        onBackPressed();
+    }*/
 }

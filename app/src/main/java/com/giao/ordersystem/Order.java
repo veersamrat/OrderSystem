@@ -41,7 +41,7 @@ public class Order extends Activity{
         homeButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                event.homButton_OnClick();
+                onBackPressed();
             }
         });
     }

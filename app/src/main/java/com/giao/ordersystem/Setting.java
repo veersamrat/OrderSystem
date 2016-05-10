@@ -94,7 +94,8 @@ public class Setting extends Activity{
         homeButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                event.homeButton_Click();
+                //event.homeButton_Click();
+                onBackPressed();
             }
         });
     }

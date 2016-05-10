@@ -28,12 +28,13 @@ public class MainActivity_Event extends Activity {
         Intent orderIntent = new Intent("com.giao.ordersystem.Order");
         orderIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         context.startActivity(orderIntent);
-     //   finish();
+
     }
 
     public void menuButton_Click() {
         Intent intent = new Intent(context,Menu.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        finish();
         context.startActivity(intent);
     }
 

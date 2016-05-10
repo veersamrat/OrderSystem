@@ -29,10 +29,9 @@ public class Tables_Event extends Activity {
     {
 
     }
-    public void homButton_OnClick()
+ /*   public void homButton_OnClick()
     {
-        System.exit(1);
-        finish();
-    }
+       onBackPressed();
+    }*/
 
 }

@@ -61,7 +61,7 @@ public class AddDish extends Activity {
         homeButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                event.homeButton_OnClick();
+                onBackPressed();
             }
         });
     }
