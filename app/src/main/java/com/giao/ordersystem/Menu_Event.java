@@ -38,7 +38,7 @@ public class Menu_Event extends Activity {
         categoryAdapter.setDropDownViewResource(R.layout.simple_spinner_dropdown_item);
         categorySpinner.setAdapter(categoryAdapter);
     }
-    public void DishListView_OnLoad(ListView dishListView, String categoryName)
+    public void dishListView_OnLoad(ListView dishListView, String categoryName)
     {
         dishDAO.open();
         DishAdapter tableAdapter = new DishAdapter(context, dishDAO.list(categoryName));

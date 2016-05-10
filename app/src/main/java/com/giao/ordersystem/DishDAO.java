@@ -24,6 +24,7 @@ public class DishDAO {
 
     public DishDAO(Context context) {
         this.context = context;
+        databaseHelper= new DatabaseHelper(context);
         // TODO Auto-generated constructor stub
     }
 
@@ -36,9 +37,9 @@ public class DishDAO {
         databaseHelper.close();
     }
 
-    public long create(String categoryID, String dishName, String dishPrice, String dishDecription, String availability) throws SQLException {
+    public long create(String categoryName, String dishName, String dishPrice, String dishDecription, String availability) throws SQLException {
         ContentValues cv = new ContentValues();
-        cv.put(CATEGORYID, categoryID);
+        cv.put(CATEGORYID, categoryName);
         cv.put(DISH_NAME, dishName);
         cv.put(DISH_PRICE, dishPrice);
         cv.put(DISH_DESCRIPTION, dishDecription);
@@ -67,6 +68,7 @@ public class DishDAO {
         for (cur.moveToFirst(); !cur.isAfterLast(); cur.moveToNext()) {
             DishBO record = new DishBO(Integer.parseInt(cur.getString(0)), Integer.parseInt(cur.getString(1)), cur.getString(2)
                     , Integer.parseInt(cur.getString(3)), cur.getString(4),Integer.parseInt(cur.getString(5)));
+
             list.add(record);
         }
         cur.close();

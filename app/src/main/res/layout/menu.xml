@@ -36,13 +36,13 @@
             android:layout_height="wrap_content"
             android:layout_weight="90"
             android:gravity="center_horizontal"
-            android:weightSum="95">
+            android:weightSum="100">
             <Spinner
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/categorySpinner"
                 android:layout_marginBottom="5dp"
-                android:layout_weight="10"
+                android:layout_weight="15"
                 android:textColor="#000000"
                 android:background="#ffffff"
                 android:divider="#b5b5b5"
@@ -54,7 +54,7 @@
                 android:layout_height="match_parent"
                 android:id="@+id/dishListView"
                 android:background="#ffffff"
-                android:layout_weight="80"
+                android:layout_weight="75"
                 android:isScrollContainer="false"
                 android:divider="#b5b5b5"
                 android:dividerHeight="1dp"/>
@@ -62,7 +62,7 @@
             <TableLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="5"
+                android:layout_weight="10"
                 android:layout_gravity="bottom">
                 <TableRow>
                     <Button

@@ -20,6 +20,7 @@ public class Menu extends Activity{
     private static Button addDishButton;
     private static ListView dishListView;
     private String selectedCategory;
+    private static DishDAO dishDAO;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,16 +29,22 @@ public class Menu extends Activity{
         categorySpinner = (Spinner) findViewById(R.id.categorySpinner);
         homeButton=(Button)findViewById(R.id.homeButton);
         addDishButton=(Button)findViewById(R.id.addDishButton);
+        dishListView=(ListView)findViewById(R.id.dishListView);
         //Load data to Spinner Category
         event.categorySpinner_OnLoad(categorySpinner);
         selectedCategory=categorySpinner.getItemAtPosition(0).toString();
-        categorySpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        //Load Dish to ListView
+        event.dishListView_OnLoad(dishListView,selectedCategory);
+        //Add OnItemSelected event to categorySpinner
+        categorySpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener()
+        {
             @Override
             public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
                 //Set the selected catogory into Red
                 ((TextView)parentView.getChildAt(0)).setTextColor(Color.rgb(255, 000, 000));
                 selectedCategory=parentView.getItemAtPosition(position).toString();
-                // your code here
+                //Load Dish to ListView
+                event.dishListView_OnLoad(dishListView,selectedCategory);
             }
             @Override
             public void onNothingSelected(AdapterView<?> parentView) {
