@@ -2,22 +2,21 @@ package com.giao.ordersystem;
 
 import android.app.Activity;
 import android.content.Context;
-import android.content.Intent;
 import android.widget.ArrayAdapter;
-import android.widget.ListView;
 import android.widget.Spinner;
+
 import java.util.ArrayList;
 
 /**
- * Created by Long on 2/8/2016.
+ * Created by Long on 5/11/2016.
  */
-public class Menu_Event extends Activity {
+public class Dish_Details_Event extends Activity {
     private Context context;
     private CategoryDAO categoryDAO;
     private DishDAO dishDAO;
-    public Menu_Event()
+    public Dish_Details_Event()
     {}
-    public Menu_Event(Context context)
+    public Dish_Details_Event(Context context)
     {
         this.context=context;
         categoryDAO = new CategoryDAO(context);
@@ -36,25 +35,4 @@ public class Menu_Event extends Activity {
         categoryAdapter.setDropDownViewResource(R.layout.simple_spinner_dropdown_item);
         categorySpinner.setAdapter(categoryAdapter);
     }
-    public void dishListView_OnLoad(ListView dishListView, String categoryName)
-    {
-        dishDAO.open();
-        DishAdapter tableAdapter = new DishAdapter(context,dishDAO.list(categoryName) );
-        dishListView.setAdapter(tableAdapter);
-        dishDAO.close();
-        tableAdapter.notifyDataSetChanged();
-
-    }
-    public void addDishButton_Onclick(String categoryName)
-    {
-        Intent addDishIntent = new Intent(context, AddDish.class);
-        addDishIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        addDishIntent.putExtra("categoryName", categoryName);
-        context.startActivity(addDishIntent);
-        finish();
-    }
- /* public void homButton_OnClick()
-    {
-        onBackPressed();
-    }*/
 }

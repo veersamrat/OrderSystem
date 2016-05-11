@@ -1,6 +1,7 @@
 package com.giao.ordersystem;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,13 +19,15 @@ public class DishAdapter extends BaseAdapter {
     private ArrayList<DishBO> data;
     private static LayoutInflater inflater = null;
     private TextView mText;
-    private Button mButton;
-    private Button mButton2;
+    private Button detailButton;
+    private Button deleteButton;
+    private DishDAO dishDAO;
     public DishAdapter(Context context, ArrayList<DishBO> data) {
         // TODO Auto-generated constructor stub
         View focusTarget = null;
         this.context = context;
         this.data = new ArrayList<DishBO>(data);
+        dishDAO= new DishDAO(context);
     }
 
     @Override
@@ -54,12 +57,21 @@ public class DishAdapter extends BaseAdapter {
         }
         DishBO temp = (DishBO) data.get(position);
         mText = (TextView) vi.findViewById(R.id.EditDishEditText);
-        mButton = (Button) vi.findViewById(R.id.DetailDishButton);
-        mButton2 = (Button) vi.findViewById(R.id.DeleteDishButton);
+        detailButton = (Button) vi.findViewById(R.id.DetailDishButton);
+        deleteButton = (Button) vi.findViewById(R.id.DeleteDishButton);
         mText.setText(temp.getDishName());
-        mButton.setTag(position);
-        mButton2.setTag(temp.getDishID());
-        mButton.setOnClickListener(new View.OnClickListener() {
+        detailButton.setTag(temp.getDishID());
+        deleteButton.setTag(position);
+        detailButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent= new Intent(context,Dish_Details.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                intent.putExtra("dishID",v.getTag().toString());
+                context.startActivity(intent);
+            }
+        });
+        deleteButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 int index = (Integer) v.getTag();
