@@ -38,7 +38,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public static final String DishPrice="DishPrice";
     public static final String DishDescription="DishDescription";
     public static final String DishAvailability="DishAvailability";
-    private static final int DATABASE_VERSION=2;
+    private static final int DATABASE_VERSION=5;
     public DatabaseHelper(Context context)
     {super(context,DATABASE_NAME,null,DATABASE_VERSION);}
     @Override
@@ -63,8 +63,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 + Dish_CategoryName+ " TEXT NOT NULL, "
                 + DishName+ " TEXT NOT NULL, "
                 + DishPrice+ " REAL, "
-                + DishDescription+ " TEXT "
-                + DishAvailability+ " TEXT"
+                + DishDescription+ " TEXT, "
+                + DishAvailability+ " REAL"
                 +");";
         String CreateTABLE_ORDERDETAIL="CREATE TABLE IF NOT EXISTS "+TABLE_ORDERDETAIL+" ("+OrderDetailID+" INTEGER PRIMARY KEY AUTOINCREMENT, "
                 + OrderDetail_OrderID+ " TEXT NOT NULL, "
@@ -82,11 +82,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         // TODO Auto-generated method stub
         Log.w(TableDAO.class.getName(), "Upgrading database from old to new version...");
-        db.execSQL("DROP TABLE IF EXIST " + TABLE_TABLES);
-        db.execSQL("DROP TABLE IF EXIST " + TABLE_MENU);
-        db.execSQL("DROP TABLE IF EXIST " + TABLE_CATEGORY);
-        db.execSQL("DROP TABLE IF EXIST " + TABLE_ORDER);
-        db.execSQL("DROP TABLE IF EXIST " + TABLE_ORDERDETAIL);
+        db.execSQL("DROP TABLE IF EXISTs " + TABLE_TABLES);
+        db.execSQL("DROP TABLE IF EXISTs " + TABLE_MENU);
+        db.execSQL("DROP TABLE IF EXISTs " + TABLE_CATEGORY);
+        db.execSQL("DROP TABLE IF EXISTs " + TABLE_ORDER);
+        db.execSQL("DROP TABLE IF EXISTs " + TABLE_ORDERDETAIL);
         onCreate(db);
     }
 }

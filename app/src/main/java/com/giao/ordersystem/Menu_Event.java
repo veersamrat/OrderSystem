@@ -41,7 +41,7 @@ public class Menu_Event extends Activity {
     public void dishListView_OnLoad(ListView dishListView, String categoryName)
     {
         dishDAO.open();
-        DishAdapter tableAdapter = new DishAdapter(context, dishDAO.list(categoryName));
+        DishAdapter tableAdapter = new DishAdapter(context,dishDAO.list(categoryName) );
         dishListView.setAdapter(tableAdapter);
         dishDAO.close();
         tableAdapter.notifyDataSetChanged();

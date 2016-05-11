@@ -11,11 +11,11 @@ import java.util.ArrayList;
  */
 public class DishDAO {
     private static final String KEY_ROWID = "dishID";
-    private static final String CATEGORYID = "categoryID";
+    private static final String CATEGORYID = "categoryName";
     private static final String DISH_NAME = "dishName";
     private static final String DISH_PRICE = "dishPrice";
     private static final String DISH_DESCRIPTION = "dishDescription";
-    private static final String DISH_AVAILABILITY="availability";
+    private static final String DISH_AVAILABILITY="Dishavailability";
     private static final String DATABASE_TABLE = "Menu";
     private static DatabaseHelper databaseHelper;
     //
@@ -53,22 +53,31 @@ public class DishDAO {
         ArrayList<DishBO> list = new ArrayList<DishBO>();
         int iRow = cur.getColumnIndex(KEY_ROWID);
         for (cur.moveToFirst(); !cur.isAfterLast(); cur.moveToNext()) {
-            DishBO record = new DishBO(Integer.parseInt(cur.getString(0)), Integer.parseInt(cur.getString(1)), cur.getString(2)
-                    , Integer.parseInt(cur.getString(3)), cur.getString(4),Integer.parseInt(cur.getString(5)));
+            int dishID;
+            Float dishprice;
+            int availability;
+            try{dishID=Integer.parseInt(cur.getString(0));}catch (Exception e){dishID=0;}
+            try{dishprice=Float.parseFloat(cur.getString(3));}catch (Exception e){dishprice=Float.parseFloat("0");}
+            try{availability=Integer.parseInt(cur.getString(5));}catch (Exception e){availability=0;}
+            DishBO record = new DishBO(dishID, cur.getString(1), cur.getString(2),dishprice , cur.getString(4),availability);
             list.add(record);
         }
         cur.close();
         return list;
-    }
+        }
     public ArrayList<DishBO> list(String categoryName) throws SQLException {
         String query = "SELECT * FROM Menu WHERE CategoryName='"+categoryName+"'";
         Cursor cur = database.rawQuery(query, null);
         ArrayList<DishBO> list = new ArrayList<DishBO>();
         int iRow = cur.getColumnIndex(KEY_ROWID);
         for (cur.moveToFirst(); !cur.isAfterLast(); cur.moveToNext()) {
-            DishBO record = new DishBO(Integer.parseInt(cur.getString(0)), Integer.parseInt(cur.getString(1)), cur.getString(2)
-                    , Integer.parseInt(cur.getString(3)), cur.getString(4),Integer.parseInt(cur.getString(5)));
-
+            int dishID;
+            Float dishprice;
+            int availability;
+            try{dishID=Integer.parseInt(cur.getString(0));}catch (Exception e){dishID=0;}
+            try{dishprice=Float.parseFloat(cur.getString(3));}catch (Exception e){dishprice=Float.parseFloat("0");}
+            try{availability=Integer.parseInt(cur.getString(5));}catch (Exception e){availability=0;}
+            DishBO record = new DishBO(dishID, cur.getString(1), cur.getString(2),dishprice , cur.getString(4),availability);
             list.add(record);
         }
         cur.close();
@@ -81,8 +90,11 @@ public class DishDAO {
         int iRow = cur.getColumnIndex(KEY_ROWID);
         DishBO record= new DishBO();
         for (cur.moveToFirst(); !cur.isAfterLast(); cur.moveToNext()) {
-            record = new DishBO(Integer.parseInt(cur.getString(0)), Integer.parseInt(cur.getString(1)), cur.getString(2)
-                    , Integer.parseInt(cur.getString(3)), cur.getString(4),Integer.parseInt(cur.getString(5)));
+            Float dishprice;
+            int availability;
+            try{dishprice=Float.parseFloat(cur.getString(3));}catch (Exception e){dishprice=Float.parseFloat("0");}
+            try{availability=Integer.parseInt(cur.getString(5));}catch (Exception e){availability=0;}
+            record = new DishBO(Integer.parseInt(dishID), cur.getString(1), cur.getString(2),dishprice , cur.getString(4),availability);
             cur.close();
         }
         return record;
