@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -49,7 +50,7 @@ public class DishAdapter extends BaseAdapter {
     }
 
     @Override
-    public View getView(final int position, View convertView, ViewGroup parent) {
+    public View getView(final int position, final View convertView, ViewGroup parent) {
         View vi = convertView;
         if (vi == null) {
             LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -61,23 +62,36 @@ public class DishAdapter extends BaseAdapter {
         deleteButton = (Button) vi.findViewById(R.id.DeleteDishButton);
         mText.setText(temp.getDishName());
         detailButton.setTag(temp.getDishID());
-        deleteButton.setTag(position);
+        deleteButton.setTag(R.string.key1,temp.getDishID());
+        deleteButton.setTag(R.string.key2,position);
         detailButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent= new Intent(context,Dish_Details.class);
+                Intent intent = new Intent(context, Dish_Details.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                intent.putExtra("dishID",v.getTag().toString());
+                intent.putExtra("dishID", v.getTag().toString());
                 context.startActivity(intent);
             }
         });
         deleteButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                int index = (Integer) v.getTag();
-                DishBO dish = data.get(index);
-                data.remove(dish);
-                notifyDataSetChanged();
+                try {
+                    int dishID = Integer.parseInt(v.getTag(R.string.key1).toString());
+                    int position = Integer.parseInt(v.getTag(R.string.key2).toString());
+                    DishBO dish = data.get(position);
+                    data.remove(dish);
+                    dishDAO.open();
+                    dishDAO.remove(dishID);
+                    notifyDataSetChanged();
+                    Toast.makeText(context, "Dish deleted successfully", Toast.LENGTH_LONG).show();
+                    dishDAO.close();
+                }
+                catch(Exception e)
+                {
+                    Toast.makeText(context, "Failed to delete. Try again", Toast.LENGTH_LONG).show();
+                    dishDAO.close();
+                }
             }
         });
         return vi;

@@ -22,6 +22,12 @@ public class Menu extends Activity{
     private String selectedCategory;
     private static DishDAO dishDAO;
     @Override
+    protected void onResume()
+    {
+        super.onResume();
+        event.dishListView_OnLoad(dishListView,selectedCategory);
+    }
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.menu);
@@ -35,6 +41,7 @@ public class Menu extends Activity{
         selectedCategory=categorySpinner.getItemAtPosition(0).toString();
         //Load Dish to ListView
         event.dishListView_OnLoad(dishListView,selectedCategory);
+
         //Add OnItemSelected event to categorySpinner
         categorySpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener()
         {

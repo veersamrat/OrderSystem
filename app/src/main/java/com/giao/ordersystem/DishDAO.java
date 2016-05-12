@@ -84,7 +84,8 @@ public class DishDAO {
         return list;
     }
     public DishBO itemDish(String dishID) throws SQLException {
-        String query = "SELECT * FROM Menu WHERE DishID='"+dishID+"'";
+
+        String query = "SELECT * FROM Menu WHERE DishID= "+dishID;
         Cursor cur = database.rawQuery(query, null);
         List<DishBO> list = new ArrayList<DishBO>();
         int iRow = cur.getColumnIndex(KEY_ROWID);
@@ -97,6 +98,7 @@ public class DishDAO {
             record = new DishBO(Integer.parseInt(dishID), cur.getString(1), cur.getString(2),dishprice , cur.getString(4),availability);
             cur.close();
         }
+        cur.close();
         return record;
     }
 
@@ -108,7 +110,7 @@ public class DishDAO {
         return database.delete(DATABASE_TABLE, null, null) > 0;
     }
 
-    public long update(String dishID, String categoryID, String dishName, String dishPrice, String dishDecription, int dishAvailability) throws SQLException
+    public long update(String dishID, String categoryID, String dishName, String dishPrice, String dishDecription, String dishAvailability) throws SQLException
     {
         ContentValues cv = new ContentValues();
         if (categoryID != null)

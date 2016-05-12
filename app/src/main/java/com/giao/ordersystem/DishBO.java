@@ -31,6 +31,5 @@ public class DishBO {
     public String getDishDescription()    {return this.dishDescription;}
     public void setDishDescription(String dishDescription)    {this.dishDescription=dishDescription;}
     public int getDishAvailability() {return dishAvailability;}
-    public void setDishAvailability(int dishAvailability) { this.dishAvailability = dishAvailability;
-    }
+    public void setDishAvailability(int dishAvailability) { this.dishAvailability = dishAvailability;}
 }
