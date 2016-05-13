@@ -27,7 +27,7 @@
         <TableRow>
 
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:text="Category:"
@@ -45,7 +45,7 @@
         </TableRow>
         <TableRow>
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:text="Dish Name:"
@@ -61,7 +61,7 @@
         </TableRow>
         <TableRow>
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:text="Price:"
@@ -76,9 +76,8 @@
 
         </TableRow>
         <TableRow>
-
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:text="Description:"
@@ -88,7 +87,7 @@
 
             <EditText
                 android:layout_width="wrap_content"
-                android:layout_height="80dp"
+                android:layout_height="wrap_content"
                 android:inputType="textMultiLine"
                 android:id="@+id/descriptionEditText"
                 android:layout_gravity="clip_horizontal"

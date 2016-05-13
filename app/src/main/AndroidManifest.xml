@@ -63,10 +63,17 @@
         </activity>
         <activity
             android:name=".Dish_Details"
-            android:theme="@style/AppTheme.NoActionBar"
-            >
+            android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="com.giao.ordersystem.Dish_Details" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".OrderInfo"
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="com.giao.ordersystem.OrderInfo" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
