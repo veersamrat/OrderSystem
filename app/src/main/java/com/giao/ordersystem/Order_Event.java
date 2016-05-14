@@ -37,12 +37,15 @@ public class Order_Event extends Activity {
         tableSpinner.setAdapter(tableAdapter);
         tableDAO.close();
     }
-    public void orderButton_OnClick()
+    public void orderButton_OnClick(String tableName)
     {
         Intent intent = new Intent(context,OrderInfo.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        finish();
+        intent.putExtra("tableName",tableName);
         context.startActivity(intent);
+
+        finish();
+
     }
 
 

@@ -39,7 +39,7 @@
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:text="Medium Text"
-                android:id="@+id/category_dishTextView"
+                android:id="@+id/tableNameTextView"
                 android:layout_weight="85"/>
 
         </TableRow>
@@ -55,7 +55,7 @@
             <EditText
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/dishNameEditText"
+                android:id="@+id/dateEditText"
                 android:layout_weight="85"/>
 
         </TableRow>
@@ -64,14 +64,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceMedium"
-                android:text="No Customer:"
+                android:text="Customer quantity:"
                 android:id="@+id/textView4"
                 android:layout_weight="15" />
 
             <EditText
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/priceEditText"
+                android:id="@+id/customerQuantityEditText"
                 android:layout_weight="85"/>
 
         </TableRow>
@@ -89,7 +89,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:inputType="textMultiLine"
-                android:id="@+id/descriptionEditText"
+                android:id="@+id/noteEditText"
                 android:layout_gravity="clip_horizontal"
                 android:layout_weight="85"/>
 
@@ -99,14 +99,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceMedium"
-                android:text="Paid:"
+                android:text="Total:"
                 android:id="@+id/textView6"
                 android:layout_weight="15" />
 
             <EditText
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/availabilityEditText"
+                android:id="@+id/totalEditText"
                 android:layout_weight="85"/>
 
         </TableRow>
