@@ -14,4 +14,15 @@ public class OrderDAO {
     public OrderDAO(Context context) {
         this.context = context;
     }
+    public void createOrder()
+    {
+
+    }
+    public void removeOrder()
+    {
+
+    }
+}
+class OrderDetailDAO{
+    public OrderDetailDAO(){}
 }

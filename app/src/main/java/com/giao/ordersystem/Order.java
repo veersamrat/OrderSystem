@@ -32,14 +32,23 @@ public class Order extends Activity{
         homeButton=(Button)findViewById(R.id.homeButton);
         //Load tableSpinner data
         event.tableSpinner_OnLoad(tableSpinner);
-  //      selectedTable=tableSpinner.getItemAtPosition(0).toString();
+        selectedTable=tableSpinner.getItemAtPosition(0).toString();
         //tableSpinner event
-        tableSpinner.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        tableSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener()
+        {
             @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                ((TextView)parent.getChildAt(0)).setTextColor(Color.rgb(255, 000, 000));
-                selectedTable=parent.getItemAtPosition(position).toString();
+            public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
+                //Set the selected catogory into Red
+                ((TextView)parentView.getChildAt(0)).setTextColor(Color.rgb(255, 000, 000));
+                selectedTable=parentView.getItemAtPosition(position).toString();
+                //Load Dish to ListView
+               // event.dishListView_OnLoad(dishListView,selectedCategory);
             }
+            @Override
+            public void onNothingSelected(AdapterView<?> parentView) {
+                // your code here
+            }
+
         });
         //OrderListView event
         orderListView.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
