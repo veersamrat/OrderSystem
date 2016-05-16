@@ -31,6 +31,7 @@ public class AddDish_Event extends Activity {
         catch (Exception e) {
             Toast.makeText(context, "Failed. Please try again", Toast.LENGTH_LONG).show();
             dishDAO.close();
+
     }
     }
  /*   public void homeButton_OnClick()

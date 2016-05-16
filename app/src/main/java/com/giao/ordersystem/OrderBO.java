@@ -7,36 +7,34 @@ import java.util.ArrayList;
  */
 public class OrderBO {
     private int orderID;
-    private int tableID;
+    private String tableName;
     private String orderDate;
     private int numberOfCustomer;
     private String orderNote;
-    private int orderPaid;
+    private Float orderPaid;
     private ArrayList<OrderDetailsBO> orderDetails= new ArrayList<OrderDetailsBO>();
     public OrderBO()
     {}
-    public OrderBO(int orderID, int tableID,String orderDate,int numberOfCustomer, String orderNote,int orderPaid, ArrayList<OrderDetailsBO> orderDetails)
-    {
+    public OrderBO(int orderID, String tableName,String orderDate,int numberOfCustomer, String orderNote,Float orderPaid){
         this.orderID=orderID;
-        this.tableID=tableID;
+        this.tableName=tableName;
         this.orderDate=orderDate;
         this.numberOfCustomer=numberOfCustomer;
         this.orderNote=orderNote;
         this.orderPaid=orderPaid;
-        this.orderDetails.addAll(orderDetails);
     }
     public int getOrderID(){return this.orderID;}
     public void setOrderID(int orderID){this.orderID=orderID;}
-    public int getTableID(){return this.tableID;}
-    public void setTableID(int tableID){this.tableID=tableID;}
+    public String getTableName(){return this.tableName;}
+    public void setTableName(String tableID){this.tableName=tableName;}
     public String getOrderDate (){return this.orderDate;}
     public void setOrderDate(String orderDate){this.orderDate=orderDate;}
     public int getNumberOfCustomer(){return this.numberOfCustomer;}
     public void setNumberOfCustomer(int numberOfCustomer){this.numberOfCustomer=numberOfCustomer;}
     public String getOrderNote(){return this.orderNote;}
     public void setOrderNote(String orderNote){this.orderNote=orderNote;}
-    public int getOrderPaid(){return this.orderPaid;}
-    public void setOrderPaid(int orderPaid){this.orderPaid=orderPaid;}
+    public Float getOrderPaid(){return this.orderPaid;}
+    public void setOrderPaid(Float orderPaid){this.orderPaid=orderPaid;}
     public ArrayList<OrderDetailsBO> getOrderDetails(){return this.orderDetails;}
     public void setOrderDetails(ArrayList<OrderDetailsBO> orderDetails){this.getOrderDetails().addAll(orderDetails);}
 }

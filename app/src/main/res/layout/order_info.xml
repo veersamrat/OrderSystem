@@ -94,23 +94,6 @@
                 android:layout_weight="85"/>
 
         </TableRow>
-        <TableRow>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:text="Total:"
-                android:id="@+id/textView6"
-                android:layout_weight="15" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/totalEditText"
-                android:text="total"
-                android:layout_weight="85"/>
-
-        </TableRow>
     </TableLayout>
 
     <LinearLayout
