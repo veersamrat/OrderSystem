@@ -29,6 +29,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public static final String OrderDetailID="OrderDetailID";
     public static final String OrderDetail_OrderID="OrderID";
     public static final String OrderDetail_DishID="DishID";
+    public static final String OrderDetails_Quantity="Quantity";
     public static final String Price="Price";
     public static final String Note="Note";
     //Menu Table columns
@@ -67,9 +68,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 + DishAvailability+ " REAL"
                 +");";
         String CreateTABLE_ORDERDETAIL="CREATE TABLE IF NOT EXISTS "+TABLE_ORDERDETAIL+" ("+OrderDetailID+" INTEGER PRIMARY KEY AUTOINCREMENT, "
-                + OrderDetail_OrderID+ " TEXT NOT NULL, "
+                + OrderDetail_OrderID+ " INTEGER NOT NULL, "
                 + OrderDetail_DishID+ " TEXT NOT NULL, "
-                + Price+ " TEXT NOT NULL, "
+                + OrderDetails_Quantity+ " INTeger NOT NULL, "
+                + Price+ " REAL, "
                 + Note+ " TEXT NOT NULL "
                 +");";
         db.execSQL(CreateTABLE_TABLES);

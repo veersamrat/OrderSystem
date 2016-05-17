@@ -77,6 +77,14 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
+        <activity
+        android:name=".Order_Details_Category"
+        android:theme="@style/AppTheme.NoActionBar">
+        <intent-filter>
+            <action android:name="com.giao.ordersystem.Order_Details_Category" />
+            <category android:name="android.intent.category.DEFAULT" />
+        </intent-filter>
+    </activity>
         <!-- ATTENTION: This was auto-generated to add Google Play services to your project for
              App Indexing.  See https://g.co/AppIndexing/AndroidStudio for more information. -->
         <meta-data

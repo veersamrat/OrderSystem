@@ -43,7 +43,6 @@ public class Order_Event extends Activity {
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         intent.putExtra("tableName",tableName);
         context.startActivity(intent);
-
         finish();
 
     }

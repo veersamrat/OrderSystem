@@ -36,6 +36,18 @@ public class OrderDAO {
     public long create(String tableName, String orderDate,  int numberOfcustomer, String orderNote,float orderPaid)
     {
         ContentValues cv= new ContentValues();
+        //optimize input data
+        if (tableName != null)
+            cv.put(TABLE_NAME,tableName);
+        if (orderDate != null)
+            cv.put(ORDER_DATE, orderDate);
+        if (Integer.toString(numberOfcustomer) != null)
+            cv.put(NUMBER_OF_CUSTOMER,Integer.toString(numberOfcustomer));
+        if (orderNote != null)
+            cv.put(ORDER_NOTE, orderNote);
+        if(Float.toString(orderPaid)!=null)
+            cv.put(ORDER_NOTE,orderNote);
+        //put data
         cv.put(TABLE_NAME, tableName);
         cv.put(ORDER_DATE,orderDate);
         cv.put(NUMBER_OF_CUSTOMER,numberOfcustomer);
@@ -43,16 +55,14 @@ public class OrderDAO {
         cv.put(ORDER_PAID, orderPaid);
         return database.insert(DATABASE_TABLE, null, cv);
     }
-    public OrderBO checkTableAvailable(String tableName)
+    public String checkTableAvailable(String tableName)
     {
-        String query = "SELECT * FROM Orders WHERE tabneName= "+tableName;
+        String query = "SELECT orderID FROM Orders WHERE tableName= '"+tableName+"'";
+        query+=" and OrderID NOT IN(SELECT OrderID from OrderDetail)";
         Cursor cur = database.rawQuery(query, null);
-      //  List<DishBO> list = new ArrayList<DishBO>();
-      //  int iRow = cur.getColumnIndex(KEY_ROWID);
-
-        OrderBO record= new OrderBO();
+        String record="";
         for (cur.moveToFirst(); !cur.isAfterLast(); cur.moveToNext()) {
-            record = new OrderBO(Integer.parseInt(cur.getString(0)), cur.getString(1),null,0,null,Float.parseFloat("0"));
+            record = cur.getString(0);
             cur.close();
         }
         cur.close();
@@ -80,6 +90,23 @@ public class OrderDAO {
         if(Float.toString(orderPaid)!=null)
             cv.put(ORDER_NOTE,orderNote);
         return database.update(DATABASE_TABLE, cv, KEY_ROWID + "=?", new String[]{orderID});
+    }
+    public OrderBO itemOrder(String orderID) throws SQLException {
+        String query = "SELECT TableName,OrderDate,NumberofCustomer,OrderNote,OrderPaid FROM Orders WHERE orderID='" + orderID + "'";
+        Cursor cur = database.rawQuery(query, null);
+        List<OrderBO> list = new ArrayList<OrderBO>();
+        OrderBO record = new OrderBO();
+        for (cur.moveToFirst(); !cur.isAfterLast(); cur.moveToNext()) {
+           String tableName=cur.getString(0).toString();
+            String orderDate=cur.getString(1).toString();
+            int NoCustomer=Integer.parseInt(cur.getString(2).toString());
+            String orderNote=cur.getString(3).toString();
+            Float orderPaid=Float.parseFloat(cur.getString(4).toString());
+            record = new OrderBO(Integer.parseInt(orderID),tableName,orderDate,NoCustomer,orderNote,orderPaid);
+            break;
+        }
+        cur.close();
+        return record;
     }
  /*   public ArrayList<DishBO> list() throws SQLException {
         String query = "SELECT * FROM Menu";

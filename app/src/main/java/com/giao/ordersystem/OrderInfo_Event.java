@@ -1,6 +1,7 @@
 package com.giao.ordersystem;
 
 import android.content.Context;
+import android.content.Intent;
 import android.widget.Toast;
 
 /**
@@ -18,12 +19,56 @@ public class OrderInfo_Event {
     {
         try {
             orderDAO.open();
-            orderDAO.create(tableName,orderDate,numberOfcustomer,orderNote,orderPaid);
-            Toast.makeText(context, "Insert new dish succesfully", Toast.LENGTH_LONG).show();
+            //Check if the table is available
+            //IF it available. Add new to Order
+            //ELSE update current records in Order
+            String orderID=orderDAO.checkTableAvailable(tableName);
+            if(orderID.equals("")) {
+                orderDAO.create(tableName, orderDate, numberOfcustomer, orderNote, orderPaid);
+                Toast.makeText(context, "Insert new table information succesfully", Toast.LENGTH_LONG).show();
+            }
+            else {
+                orderDAO.update(orderID, tableName, orderDate, numberOfcustomer, orderNote, orderPaid);
+                Toast.makeText(context, "Update table information succesfully", Toast.LENGTH_LONG).show();
+            }
+            orderDAO.close();
+            //Open Dish Category
+            Intent intent = new Intent(context,Order_Details_Category.class);
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            context.startActivity(intent);
+        }
+        catch (Exception e) {
+            Toast.makeText(context, "Failed to update table information", Toast.LENGTH_LONG).show();
+            orderDAO.close();
+        }
+    }
+    public void orderInfoDELETE_OnClick(String tableName)
+    {
+        try {
+            orderDAO.open();
+            String orderID=orderDAO.checkTableAvailable(tableName);
+            if(orderID.equals(""))
+            {
+                Toast.makeText(context, "Table is available", Toast.LENGTH_LONG).show();
+                orderDAO.close();
+                return;
+            }
+            orderDAO.remove(Integer.parseInt(orderID));
+            Toast.makeText(context, "Delete table sucessfully", Toast.LENGTH_LONG).show();
             orderDAO.close();
         }
         catch (Exception e) {
-            Toast.makeText(context, "Failed to insert Dish", Toast.LENGTH_LONG).show();
+            Toast.makeText(context, "Failed to delete table", Toast.LENGTH_LONG).show();
             orderDAO.close();
-        }}
+        }
+    }
+    public OrderBO OrderInfo_OnLoad(String tableName)
+    {
+        orderDAO.open();
+        String orderID=orderDAO.checkTableAvailable(tableName);
+        OrderBO orderBO=orderDAO.itemOrder(orderID);
+        orderDAO.close();
+        return orderBO;
+
+    }
 }
