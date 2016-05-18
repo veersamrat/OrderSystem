@@ -20,14 +20,10 @@ public class CategoryAdapter extends BaseAdapter{
     private TextView mText;
     private Button mButton;
 
-    //    private final int minDelta;           // threshold in ms
-//    private long focusTime;                 // time of last touch
-//   private View focusTarget;
+
     public CategoryAdapter(Context context, ArrayList<CategoryBO> data) {
         // TODO Auto-generated constructor stub
-//        minDelta = 300;           // threshold in ms
-//        focusTime = 0;                 // time of last touch
-        View focusTarget = null;
+
         this.context = context;
         this.data = new ArrayList<CategoryBO>(data);
 
