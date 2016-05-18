@@ -5,6 +5,7 @@ package com.giao.ordersystem;
  */
 import java.util.ArrayList;
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -58,8 +59,11 @@ public class Order_Details_Category_Adapter extends BaseAdapter{
         categoryButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String tableName= v.getTag().toString();
-
+                String categoryName= v.getTag().toString();
+                Intent intent= new Intent(context,Order_Details_Dish.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                intent.putExtra("categoryName", categoryName);
+                context.startActivity(intent);
             }
         });
         return vi;
