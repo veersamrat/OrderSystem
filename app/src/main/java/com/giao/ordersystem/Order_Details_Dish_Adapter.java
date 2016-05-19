@@ -18,12 +18,13 @@ public class Order_Details_Dish_Adapter  extends BaseAdapter {
     private ArrayList<DishBO> data;
     private static LayoutInflater inflater = null;
     private Button dishButton;
+    private String orderID;
 
-    public Order_Details_Dish_Adapter(Context context, ArrayList<DishBO> data) {
+    public Order_Details_Dish_Adapter(Context context, ArrayList<DishBO> data,String orderID) {
         // TODO Auto-generated constructor stub
         this.context = context;
         this.data = new ArrayList<DishBO>(data);
-
+        this.orderID=orderID;
     }
 
     @Override
@@ -62,6 +63,7 @@ public class Order_Details_Dish_Adapter  extends BaseAdapter {
                 Intent intent= new Intent(context,Order_Details.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 intent.putExtra("dishID", dishID);
+                intent.putExtra("orderID",orderID);
                 context.startActivity(intent);
             }
         });

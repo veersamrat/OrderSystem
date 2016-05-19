@@ -13,7 +13,7 @@
         android:textStyle="bold"
         android:textSize="32sp"
         android:textColor="#ffffff"
-        android:id="@+id/textView"
+        android:id="@+id/tableNameTextView"
         android:background="#3f51B5"
         android:layout_weight="10"/>
     <ListView

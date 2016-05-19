@@ -19,12 +19,13 @@ public class Order_Details_Category_Adapter extends BaseAdapter{
     private ArrayList<CategoryBO> data;
     private static LayoutInflater inflater = null;
     private Button categoryButton;
+    private String orderID="";
 
-    public Order_Details_Category_Adapter(Context context, ArrayList<CategoryBO> data) {
+    public Order_Details_Category_Adapter(Context context, ArrayList<CategoryBO> data,String orderID) {
         // TODO Auto-generated constructor stub
         this.context = context;
         this.data = new ArrayList<CategoryBO>(data);
-
+        this.orderID=orderID;
     }
 
     @Override
@@ -63,6 +64,7 @@ public class Order_Details_Category_Adapter extends BaseAdapter{
                 Intent intent= new Intent(context,Order_Details_Dish.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 intent.putExtra("categoryName", categoryName);
+                intent.putExtra("orderID",orderID);
                 context.startActivity(intent);
             }
         });

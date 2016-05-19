@@ -33,7 +33,12 @@ public class OrderInfo_Event {
             }
             orderDAO.close();
             //Open Dish Category
+            orderDAO.open();
+            orderID=orderDAO.checkTableAvailable(tableName);
+            orderDAO.close();
             Intent intent = new Intent(context,Order_Details_Category.class);
+            intent.putExtra("orderID",orderID);
+            intent.putExtra("tableName",tableName);
             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             context.startActivity(intent);
         }

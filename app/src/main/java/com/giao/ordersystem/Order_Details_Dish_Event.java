@@ -14,10 +14,10 @@ public class Order_Details_Dish_Event extends Activity {
         context=_context;
         dishDAO= new DishDAO(context);
     }
-    public void categoryListView_OnLoad(ListView dishListView)
+    public void categoryListView_OnLoad(ListView dishListView,String orderID,String categoryName)
     {
         dishDAO.open();
-        Order_Details_Dish_Adapter dishAdatper = new Order_Details_Dish_Adapter(context, dishDAO.list());
+        Order_Details_Dish_Adapter dishAdatper = new Order_Details_Dish_Adapter(context, dishDAO.list(categoryName),orderID);
         dishListView.setAdapter(dishAdatper);
         dishDAO.close();
         dishAdatper.notifyDataSetChanged();

@@ -12,6 +12,7 @@ import android.widget.TextView;
  */
 public class Order_Details_Dish extends Activity {
     String categoryName="";
+    String orderID="";
     TextView dishTextView;
     Button homeButton;
     ListView dishListView;
@@ -23,6 +24,7 @@ public class Order_Details_Dish extends Activity {
         Bundle extras = getIntent().getExtras();
         if (extras != null) {
             categoryName = extras.getString("categoryName");
+            orderID=extras.getString("orderID");
         }
         event= new Order_Details_Dish_Event(this.getBaseContext());
         //Declare controls
@@ -31,7 +33,7 @@ public class Order_Details_Dish extends Activity {
         dishListView=(ListView)findViewById(R.id.dishListView);
         //Load data to ListView and dishTextView
         dishTextView.setText(categoryName);
-        event.categoryListView_OnLoad(dishListView);
+        event.categoryListView_OnLoad(dishListView,orderID,categoryName);
         //homeButton event
         homeButton.setOnClickListener(new View.OnClickListener() {
             @Override

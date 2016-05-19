@@ -16,10 +16,10 @@ public class Order_Details_Category_Event extends Activity {
         orderDAO= new OrderDAO(context);
         categoryDAO= new CategoryDAO(context);
     }
-    public void categoryListView_OnLoad(ListView categoryListView)
+    public void categoryListView_OnLoad(ListView categoryListView,String orderID)
     {
         categoryDAO.open();
-        Order_Details_Category_Adapter categoryAdatper = new Order_Details_Category_Adapter(context, categoryDAO.list());
+        Order_Details_Category_Adapter categoryAdatper = new Order_Details_Category_Adapter(context, categoryDAO.list(),orderID);
         categoryListView.setAdapter(categoryAdatper);
         categoryDAO.close();
         categoryAdatper.notifyDataSetChanged();
