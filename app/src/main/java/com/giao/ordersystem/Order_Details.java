@@ -17,19 +17,16 @@ public class Order_Details extends Activity {
     EditText noteEditText;
     Button addDishButtonOK;
     Button homeButton;
-    String orderID="";
-    String dishID="";
     Order_Details_Event event;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.order_details);
-        //get dishID and orderID
+        String dishID = "";
         Bundle extras = getIntent().getExtras();
         if (extras != null) {
             dishID = extras.getString("dishID");
-            orderID=extras.getString("orderID");
         }
-        event= new Order_Details_Event(this.getBaseContext());
+        event= new Order_Details_Event(this.getBaseContext(),this);
         //Declare controls
         dishNameTextView=(TextView)findViewById(R.id.dishNameTextView);
         quantityEditText=(EditText)findViewById(R.id.quantityEditText);
@@ -40,6 +37,24 @@ public class Order_Details extends Activity {
         //Load data to fields
         DishInfo_OnLoad(dishID);
 
+        //addDishButtonOK event OnCick
+        addDishButtonOK.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //get dishID and orderID
+                String dishID = "";
+                String orderID="";
+                Bundle extras = getIntent().getExtras();
+                if (extras != null) {
+                    dishID = extras.getString("dishID");
+                    orderID=extras.getString("orderID");
+                }
+                String quantity=quantityEditText.getText().toString();
+                String price=priceEditText.getText().toString();
+                String note=noteEditText.getText().toString();
+                event.addDishButtonOK_OnClick(orderID,dishID,quantity,price,note);
+            }
+        });
         //homeButton event
         homeButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -52,6 +67,8 @@ public class Order_Details extends Activity {
     public void DishInfo_OnLoad(String dishID)
     {
         DishBO dishBO= event.DishInfo_OnLoad(dishID);
-
+        dishNameTextView.setText(dishBO.getDishName());
+        quantityEditText.setText("1");
+        priceEditText.setText(Float.toString(dishBO.getDishPrice()));
     }
 }

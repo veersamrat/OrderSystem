@@ -29,7 +29,7 @@ public class OrderInfo_Event {
             }
             else {
                 orderDAO.update(orderID, tableName, orderDate, numberOfcustomer, orderNote, orderPaid);
-                Toast.makeText(context, "Update table information succesfully", Toast.LENGTH_LONG).show();
+                //Toast.makeText(context, "Update table information succesfully", Toast.LENGTH_LONG).show();
             }
             orderDAO.close();
             //Open Dish Category
