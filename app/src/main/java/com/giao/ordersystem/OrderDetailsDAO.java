@@ -65,6 +65,30 @@ public class OrderDetailsDAO {
         cur.close();
         return list;
     }
+    public ArrayList<Order_View> list_orderdetails(String tableName)
+    {
+        String query="SELECT quantity, dishname, round(quantity*price,2) subtotal,orderdetail.note";
+        query+=" FROM orderdetail,menu,tables,orders";
+        query+=" WHERE orderdetail.dishid=menu.dishid";
+        query+=" AND orders.tablename=tables.tablename";
+        query+=" AND orders.orderid=orderdetail.orderid";
+        query+=" AND orders.tablename='"+tableName+"'";
+        query+=" GROUP BY quantity,dishname,subtotal,note";
+        query+=" HAVING orderpaid<SUM(subtotal)";
+        Cursor cur=database.rawQuery(query,null);
+        ArrayList<Order_View> list = new ArrayList<Order_View>();
+        int iRow= cur.getColumnIndex(KEY_OrderDetailID);
+        for(cur.moveToFirst();!cur.isAfterLast();cur.moveToNext()) {
+            int quantity=Integer.parseInt(cur.getString(0).toString());
+            String dishname=cur.getString(1);
+            Float subtotal=Float.parseFloat(cur.getString(2));
+            String note=cur.getString(3);
+            Order_View record = new Order_View(quantity,dishname,subtotal,note);
+            list.add(record);
+            }
+        cur.close();
+        return list;
+    }
     public boolean remove(int orderDetailID)
     {
         return database.delete(DATABASE_TABLE, KEY_OrderDetailID + "=" + orderDetailID, null) > 0;

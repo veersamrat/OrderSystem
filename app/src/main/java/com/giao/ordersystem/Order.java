@@ -13,6 +13,7 @@ import android.widget.TextView;
 public class Order extends Activity{
    // private Tables_Event table_event;
     private Order_Event event;
+    private Order_Details_Event orderDetails_event;
     private static Button homeButton;
     private static Button orderButton;
     private static ListView orderListView;
@@ -25,6 +26,7 @@ public class Order extends Activity{
         //tables_event= new Tables_Event(this.getApplicationContext());
       //  table_event= new Tables_Event(this.getBaseContext());
         event= new Order_Event(this.getBaseContext());
+        orderDetails_event= new Order_Details_Event(this.getBaseContext(),this);
         //Declare Controls
         tableSpinner= (Spinner)findViewById(R.id.tableSpinner);
         orderListView=(ListView)findViewById(R.id.orderListView);
@@ -32,7 +34,9 @@ public class Order extends Activity{
         homeButton=(Button)findViewById(R.id.homeButton);
         //Load tableSpinner data
         event.tableSpinner_OnLoad(tableSpinner);
+        //Load Dish to ListView
         selectedTable=tableSpinner.getItemAtPosition(0).toString();
+        orderDetails_event.orderListView_OnLoad(orderListView,selectedTable);
         //tableSpinner event
         tableSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener()
         {
@@ -40,9 +44,9 @@ public class Order extends Activity{
             public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
                 //Set the selected catogory into Red
                 ((TextView)parentView.getChildAt(0)).setTextColor(Color.rgb(255, 000, 000));
-                selectedTable=parentView.getItemAtPosition(position).toString();
                 //Load Dish to ListView
-               // event.dishListView_OnLoad(dishListView,selectedCategory);
+                selectedTable=tableSpinner.getItemAtPosition(position).toString();
+                orderDetails_event.orderListView_OnLoad(orderListView,selectedTable);
             }
             @Override
             public void onNothingSelected(AdapterView<?> parentView) {
@@ -80,4 +84,5 @@ public class Order extends Activity{
             }
         });
     }
+
 }

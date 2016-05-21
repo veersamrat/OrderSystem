@@ -22,7 +22,7 @@
                 android:paddingTop="@dimen/activity_horizontal_margin"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:textAlignment="center"
-                android:text="Menu"
+                android:text="Order"
                 android:textStyle="bold"
                 android:textSize="32sp"
                 android:textColor="#ffffff"
@@ -66,15 +66,40 @@
                 android:layout_height="match_parent"
                 android:id="@+id/orderListView"
                 android:background="#ffffff"
-                android:layout_weight="75"
+                android:layout_weight="65"
                 android:isScrollContainer="false"
                 android:divider="#b5b5b5"
                 android:dividerHeight="1dp"/>
         </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="10">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Total:"
+            android:paddingLeft="8dp"
+            android:id="@+id/totalTextView"
+            android:textStyle="bold"
+            android:textSize="25sp"
+            android:layout_weight="10"/>
+        </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="10">
+            android:layout_weight="10">v
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="45dip"
+                android:background="#FFC61717"
+                android:textColor="#ffffff"
+                android:textSize="35sp"
+                android:text="Send"
+                android:id="@+id/saveButton"
+                android:layout_gravity="center_horizontal"
+                android:layout_weight="5"
+                android:layout_marginRight="5dp"/>
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="45dip"
@@ -84,7 +109,7 @@
                 android:text="Home"
                 android:id="@+id/homeButton"
                 android:layout_gravity="center_horizontal"
-                android:layout_weight="10"/>
+                android:layout_weight="5"/>
         </LinearLayout>
 
     </LinearLayout>

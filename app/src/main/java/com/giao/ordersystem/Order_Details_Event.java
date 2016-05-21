@@ -2,6 +2,7 @@ package com.giao.ordersystem;
 
 import android.app.Activity;
 import android.content.Context;
+import android.widget.ListView;
 import android.widget.Toast;
 
 /**
@@ -29,8 +30,8 @@ public class Order_Details_Event extends Activity {
     {
         orderDetailsDAO.open();
         try {
-            int _orderID = 0;
-            int _dishID = 0;
+            int _orderID = Integer.parseInt(orderID);
+            int _dishID = Integer.parseInt(dishID);
             int _quantity = 0;
             try{_quantity=Integer.parseInt(quantity);}catch(Exception e){_quantity=0;}
             Float _price=Float.parseFloat("0");
@@ -45,5 +46,13 @@ public class Order_Details_Event extends Activity {
             Toast.makeText(context, "Failed. Please try again",Toast.LENGTH_LONG ).show();
             orderDetailsDAO.close();
         }
+    }
+    public void orderListView_OnLoad(ListView list,String tableName){
+
+        orderDetailsDAO.open();
+        Order_View_Adapter orderViewAdapter = new Order_View_Adapter(context, orderDetailsDAO.list_orderdetails(tableName));
+        orderDetailsDAO.close();
+        list.setAdapter(orderViewAdapter);
+
     }
 }

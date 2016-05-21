@@ -86,7 +86,6 @@
                 android:id="@+id/noteEditText"
                 android:layout_gravity="clip_horizontal"
                 android:layout_weight="90"/>
-
         </TableRow>
 
     </TableLayout>
