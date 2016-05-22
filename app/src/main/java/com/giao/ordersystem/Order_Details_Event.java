@@ -36,7 +36,7 @@ public class Order_Details_Event extends Activity {
             try{_quantity=Integer.parseInt(quantity);}catch(Exception e){_quantity=0;}
             Float _price=Float.parseFloat("0");
             try{_price=Float.parseFloat(price);}catch(Exception e){_price=Float.parseFloat("0");}
-            String _note = "";
+            String _note = note;
             orderDetailsDAO.create(_orderID, _dishID, _quantity, _price, _note);
             orderDetailsDAO.close();
             order_details.onBackPressed();

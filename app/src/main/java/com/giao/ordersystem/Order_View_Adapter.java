@@ -17,6 +17,7 @@ public class Order_View_Adapter extends BaseAdapter {
     private Context context;
     private ArrayList<Order_View> data;
     private static LayoutInflater inflater = null;
+    private TextView orderDetailIDTextView;
     private TextView quantityTextView;
     private TextView dishNameTextView;
     private TextView subtotalTextView;
@@ -57,12 +58,14 @@ public class Order_View_Adapter extends BaseAdapter {
             vi = inflater.inflate(R.layout.order_view_layout, null, true);
         }
         Order_View temp = (Order_View) data.get(position);
+        orderDetailIDTextView=(TextView)vi.findViewById(R.id.orderDetailIDTextView);
         quantityTextView=(TextView)vi.findViewById(R.id.quantityTextView);
         dishNameTextView=(TextView)vi.findViewById(R.id.dishNameTextView);
         subtotalTextView=(TextView)vi.findViewById(R.id.subtotalTextView);
         noteTextView=(TextView)vi.findViewById(R.id.noteTextView);
         OrderViewDeleteButton=(Button)vi.findViewById(R.id.OrderViewDeleteButton);
         //set data
+        orderDetailIDTextView.setText(Integer.toString(temp.getOrderDetailID()));
         quantityTextView.setText(Integer.toString(temp.getQuantity()));
         dishNameTextView.setText(temp.getdishName());
         subtotalTextView.setText("$"+Float.toString(temp.getSubtotal()));

@@ -58,12 +58,19 @@ public class OrderDAO {
     public String checkTableAvailable(String tableName)
     {
         String query = "SELECT orderID FROM Orders WHERE tableName= '"+tableName+"'";
-        query+=" and OrderID NOT IN(SELECT OrderID from OrderDetail)";
+        query+=" AND (OrderID NOT IN(SELECT OrderID FROM OrderDetail)";
+        query+=" OR orderpaid< (SELECT SUM(round(quantity*price,2)) FROM orderdetail,menu,tables,orders";
+        query+=" WHERE orderdetail.dishid=menu.dishid";
+        query+=" AND orders.tablename=tables.tablename";
+        query+=" AND orders.orderid=orderdetail.orderid";
+        query+=" AND orders.tablename='"+tableName+"')";
+        query+=")";
         Cursor cur = database.rawQuery(query, null);
         String record="";
         for (cur.moveToFirst(); !cur.isAfterLast(); cur.moveToNext()) {
             record = cur.getString(0);
             cur.close();
+            break;
         }
         cur.close();
         return record;
