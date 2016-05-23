@@ -69,7 +69,6 @@ public class OrderDAO {
         String record="";
         for (cur.moveToFirst(); !cur.isAfterLast(); cur.moveToNext()) {
             record = cur.getString(0);
-            cur.close();
             break;
         }
         cur.close();
@@ -77,6 +76,10 @@ public class OrderDAO {
     }
     public boolean remove(int orderID) throws SQLException {
         return database.delete(DATABASE_TABLE, KEY_ROWID + "=" + orderID, null) > 0;
+    }
+    public boolean removeOrderDetails(int orderID) throws SQLException
+    {
+        return database.delete("OrderDetail", "OrderID" + "=" + orderID, null) > 0;
     }
 
     public boolean removeAll() {
@@ -115,4 +118,5 @@ public class OrderDAO {
         cur.close();
         return record;
     }
+
 }

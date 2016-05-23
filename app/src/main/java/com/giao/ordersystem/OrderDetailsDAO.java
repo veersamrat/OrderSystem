@@ -7,6 +7,7 @@ import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by Long on 5/19/2016.
@@ -67,7 +68,7 @@ public class OrderDetailsDAO {
     }
     public ArrayList<Order_View> list_orderdetails(String tableName)
     {
-        String query="SELECT orderDetailID,quantity, dishname, round(quantity*price,2) subtotal,orderdetail.note";
+        String query="SELECT orderDetailID,dishID,quantity, dishname, round(quantity*price,2) subtotal,orderdetail.note";
         query+=" FROM orderdetail,menu,tables,orders";
         query+=" WHERE orderdetail.dishid=menu.dishid";
         query+=" AND orders.tablename=tables.tablename";
@@ -80,11 +81,12 @@ public class OrderDetailsDAO {
         int iRow= cur.getColumnIndex(KEY_OrderDetailID);
         for(cur.moveToFirst();!cur.isAfterLast();cur.moveToNext()) {
             int orderDetailID=Integer.parseInt(cur.getString(0).toString());
-            int quantity=Integer.parseInt(cur.getString(1).toString());
-            String dishname=cur.getString(2);
-            Float subtotal=Float.parseFloat(cur.getString(3));
-            String note=cur.getString(4);
-            Order_View record = new Order_View(orderDetailID,quantity,dishname,subtotal,note);
+            int dishID=Integer.parseInt(cur.getString(1).toString());
+            int quantity=Integer.parseInt(cur.getString(2).toString());
+            String dishname=cur.getString(3);
+            Float subtotal=Float.parseFloat(cur.getString(4));
+            String note=cur.getString(5);
+            Order_View record = new Order_View(orderDetailID,dishID,quantity,dishname,subtotal,note);
             list.add(record);
             }
         cur.close();
@@ -97,5 +99,25 @@ public class OrderDetailsDAO {
     public boolean removeAll()
     {
         return database.delete(DATABASE_TABLE, null, null) > 0;
+    }
+    public int getOrderIDbyDetailsID(int orderDetailID)
+    {
+        try {
+            int orderID;
+            String query = "SELECT orderID FROM orderDetails WHERE orderDetailID= "+orderDetailID;
+            Cursor cur = database.rawQuery(query, null);
+            List<DishBO> list = new ArrayList<DishBO>();
+            for (cur.moveToFirst(); !cur.isAfterLast(); cur.moveToNext()) {
+                orderID=Integer.parseInt(cur.getString(0).toString());
+                cur.close();
+                break;
+            }
+            cur.close();
+            return 0;
+        }
+        catch(Exception e)
+        {
+            return 0;
+        }
     }
 }

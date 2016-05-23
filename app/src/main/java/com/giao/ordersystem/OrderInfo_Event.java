@@ -49,7 +49,7 @@ public class OrderInfo_Event {
     }
     public void orderInfoDELETE_OnClick(String tableName)
     {
-        try {
+        try{
             orderDAO.open();
             String orderID=orderDAO.checkTableAvailable(tableName);
             if(orderID.equals(""))
@@ -75,5 +75,18 @@ public class OrderInfo_Event {
         orderDAO.close();
         return orderBO;
 
+    }
+    public int getOrderbyTable(String tableName)
+    {
+        try {
+            orderDAO.open();
+            int orderID = Integer.parseInt(orderDAO.checkTableAvailable(tableName));
+            orderDAO.close();
+            return orderID;
+        }
+        catch(Exception e)
+        {
+            return 0;
+        }
     }
 }

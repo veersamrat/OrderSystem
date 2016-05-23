@@ -14,6 +14,10 @@
             android:layout_width="1dp"
             android:layout_height="1dp"
             android:id="@+id/orderDetailIDTextView" />
+        <TextView
+            android:layout_width="1dp"
+            android:layout_height="1dp"
+            android:id="@+id/dishIDTextView" />
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
