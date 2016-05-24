@@ -71,18 +71,7 @@ public class Setting_Event extends Activity {
     private AlertDialog.Builder build;
     public void saveButton_Click(ArrayList<TableBO> tableCollection, ArrayList<CategoryBO> categoryCollection)
     {
-        //Display Dialog
-   /*     build = new AlertDialog.Builder(context);
-        build.setTitle("Save");
-        build.setMessage("Do you want to save ?");
-        build.setNegativeButton("No", new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dialog, int which) {
-                dialog.cancel();
-                return;
-            }
-        });
-        AlertDialog alert = build.create();
-        alert.show();*/
+
         //remove all
         tableDAO.open();
         tableDAO.removeAll();

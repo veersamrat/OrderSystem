@@ -1,5 +1,6 @@
 package com.giao.ordersystem;
 
+import android.app.Activity;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -24,13 +25,14 @@ public class Order_View_Adapter extends BaseAdapter {
     private TextView subtotalTextView;
     private TextView noteTextView;
     private Button OrderViewDeleteButton;
-
-    public Order_View_Adapter(Context context, ArrayList<Order_View> data) {
+    Activity activity;
+    private Float total=0.0f;
+    public Order_View_Adapter(Activity activity,Context context, ArrayList<Order_View> data) {
         // TODO Auto-generated constructor stub
-
+        total=0.0f;
         this.context = context;
         this.data= new ArrayList<Order_View>(data);
-
+        this.activity=activity;
     }
     @Override
     public int getCount() {
@@ -81,6 +83,7 @@ public class Order_View_Adapter extends BaseAdapter {
                 Order_View order_view = data.get(index);
                 data.remove(order_view);
                 notifyDataSetChanged();
+                ((Order)activity).CaculateTotal();
             }
         });
 

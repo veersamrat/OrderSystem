@@ -18,7 +18,6 @@ public class Table_Order_Adatper  extends BaseAdapter {
     private Context context;
     private ArrayList<TableBO> data;
     private static LayoutInflater inflater = null;
-
     private Button tableButton;
 
     public Table_Order_Adatper(Context context, ArrayList<TableBO> data) {

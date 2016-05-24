@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.widget.ArrayAdapter;
+import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -17,14 +18,16 @@ public class Order_Event extends Activity {
     private OrderDAO orderDAO;
     private TableDAO tableDAO;
     private OrderDetailsDAO orderDetailsDAO;
+    Activity orderActivity;
     public Order_Event()
     {}
-    public Order_Event(Context context)
+    public Order_Event(Context _context,Activity orderActivity)
     {
-        this.context=context;
+        this.context=_context;
         orderDAO= new OrderDAO(context);
         tableDAO= new TableDAO(context);
         orderDetailsDAO= new OrderDetailsDAO(context);
+        this.orderActivity=orderActivity;
     }
     public void tableSpinner_OnLoad(Spinner tableSpinner)
     {
@@ -49,16 +52,21 @@ public class Order_Event extends Activity {
         finish();
 
     }
-    public void saveButton_OnClick(ArrayList<Order_View> order_viewArrayList,int orderID)
+    public void saveButton_OnClick(ArrayList<Order_View> orginalOrder_viewArrayList,ArrayList<Order_View> order_viewArrayList,int orderID)
     {
         try {
             //remove all orderdetails where contains OrderID
+            if(orginalOrder_viewArrayList.size()!=0) {
+                orderDetailsDAO.open();
+                for(int i=0;i<orginalOrder_viewArrayList.size();i++) {
+                    Order_View temp = (Order_View) orginalOrder_viewArrayList.get(i);
+                    orderDetailsDAO.remove(temp.getOrderDetailID());
+                }
+                orderDetailsDAO.close();
+            }
+            //re-create all orderdetails
             if (order_viewArrayList.size() != 0 )
             {
-                orderDAO.open();
-                orderDAO.removeOrderDetails(orderID);
-                orderDAO.close();
-                //Add all order_view_ArrayList
                 orderDetailsDAO.open();
                 for(int i=0;i<order_viewArrayList.size();i++)
                 {
@@ -79,6 +87,14 @@ public class Order_Event extends Activity {
             orderDAO.close();
             orderDetailsDAO.close();
         }
+    }
+    public void orderListView_OnLoad(ListView list,String tableName){
+
+        orderDetailsDAO.open();
+        Order_View_Adapter orderViewAdapter = new Order_View_Adapter(orderActivity,context, orderDetailsDAO.list_orderdetails(tableName));
+        orderDetailsDAO.close();
+        list.setAdapter(orderViewAdapter);
+
     }
 
 

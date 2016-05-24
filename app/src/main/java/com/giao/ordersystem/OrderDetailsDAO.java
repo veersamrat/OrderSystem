@@ -68,13 +68,13 @@ public class OrderDetailsDAO {
     }
     public ArrayList<Order_View> list_orderdetails(String tableName)
     {
-        String query="SELECT orderDetailID,dishID,quantity, dishname, round(quantity*price,2) subtotal,orderdetail.note";
+        String query="SELECT orderDetailID,menu.dishID,quantity, dishname, round(quantity*price,2) subtotal,orderdetail.note";
         query+=" FROM orderdetail,menu,tables,orders";
         query+=" WHERE orderdetail.dishid=menu.dishid";
         query+=" AND orders.tablename=tables.tablename";
         query+=" AND orders.orderid=orderdetail.orderid";
         query+=" AND orders.tablename='"+tableName+"'";
-        query+=" GROUP BY orderDetailID,quantity,dishname,subtotal,note";
+        query+=" GROUP BY orderDetailID,menu.dishID,quantity,dishname,subtotal,note";
         query+=" HAVING orderpaid<SUM(subtotal)";
         Cursor cur=database.rawQuery(query,null);
         ArrayList<Order_View> list = new ArrayList<Order_View>();

@@ -47,12 +47,5 @@ public class Order_Details_Event extends Activity {
             orderDetailsDAO.close();
         }
     }
-    public void orderListView_OnLoad(ListView list,String tableName){
 
-        orderDetailsDAO.open();
-        Order_View_Adapter orderViewAdapter = new Order_View_Adapter(context, orderDetailsDAO.list_orderdetails(tableName));
-        orderDetailsDAO.close();
-        list.setAdapter(orderViewAdapter);
-
-    }
 }
