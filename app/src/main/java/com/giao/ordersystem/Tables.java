@@ -14,6 +14,12 @@ public class Tables extends Activity{
     private static Button homeButton;
     private static ListView tableListView;
     @Override
+    protected void onResume()
+    {
+        super.onResume();
+        event.tableListView_OnLoad(tableListView);
+    }
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.tables);

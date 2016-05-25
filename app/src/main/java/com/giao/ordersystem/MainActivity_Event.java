@@ -25,7 +25,7 @@ public class MainActivity_Event extends Activity {
     }
 
     public void orderButton_Click() {
-        Intent orderIntent = new Intent("com.giao.ordersystem.Order");
+        Intent orderIntent = new Intent(context,Order.class);
         orderIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         context.startActivity(orderIntent);
 
@@ -34,17 +34,16 @@ public class MainActivity_Event extends Activity {
     public void menuButton_Click() {
         Intent intent = new Intent(context,Menu.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        finish();
         context.startActivity(intent);
     }
 
     public void tableButton_Click() {
-        Intent orderIntent = new Intent("com.giao.ordersystem.Tables");
+        Intent orderIntent = new Intent(context,Tables.class);
         orderIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         context.startActivity(orderIntent);
     }
     public void settingButton_Click() {
-        Intent orderIntent = new Intent("com.giao.ordersystem.Setting");
+        Intent orderIntent = new Intent(context,Setting.class);
         orderIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         context.startActivity(orderIntent);
     }

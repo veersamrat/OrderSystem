@@ -118,5 +118,18 @@ public class OrderDAO {
         cur.close();
         return record;
     }
+    public long updateTableName(int orderID, String tableName)
+    {
+        ContentValues cv = new ContentValues();
+        if (tableName != null)
+            cv.put(TABLE_NAME,tableName);
+        return database.update(DATABASE_TABLE, cv, KEY_ROWID + "=?", new String[]{Integer.toString(orderID)});
+    }
+    public long updateOrderPaid(int orderID,Float paid)
+    {
+        ContentValues cv = new ContentValues();
+        cv.put(ORDER_PAID,paid);
+        return database.update(DATABASE_TABLE, cv, KEY_ROWID + "=?", new String[]{Integer.toString(orderID)});
+    }
 
 }

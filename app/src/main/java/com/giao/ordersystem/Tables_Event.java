@@ -20,7 +20,7 @@ public class Tables_Event extends Activity {
     public void tableListView_OnLoad(ListView tableListView)
     {
         tableDAO.open();
-        Table_Pay_Change_Adatper tableAdapter = new Table_Pay_Change_Adatper(context, tableDAO.list());
+        Table_PayandMove_Adapter tableAdapter = new Table_PayandMove_Adapter(context, tableDAO.list());
         tableListView.setAdapter(tableAdapter);
         tableDAO.close();
         tableAdapter.notifyDataSetChanged();
