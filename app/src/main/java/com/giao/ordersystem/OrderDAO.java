@@ -118,6 +118,7 @@ public class OrderDAO {
         cur.close();
         return record;
     }
+    //this function used to change Table
     public long updateTableName(int orderID, String tableName)
     {
         ContentValues cv = new ContentValues();
@@ -125,10 +126,68 @@ public class OrderDAO {
             cv.put(TABLE_NAME,tableName);
         return database.update(DATABASE_TABLE, cv, KEY_ROWID + "=?", new String[]{Integer.toString(orderID)});
     }
-    public long updateOrderPaid(int orderID,Float paid)
+    //these functions used to update payment
+    public String getUnpaidOrder(String tableName)
+    {
+        String orderID="";
+        String query = "SELECT Orders.OrderID ";
+        query +=" FROM Orders,Tables,OrderDetail";
+        query +=" WHERE Orders.tableName=Tables.tableName";
+        query +=" AND Orders.OrderID=OrderDetail.OrderID";
+        query +=" AND Tables.TableName='"+tableName+"'";
+        query +=" GROUP BY 1";
+        query +=" HAVING Orders.OrderPaid<(SELECT SUM(quantity*price) FROM OrderDetail)";
+        Cursor cur = database.rawQuery(query, null);
+        List<OrderBO> list = new ArrayList<OrderBO>();
+        for (cur.moveToFirst(); !cur.isAfterLast(); cur.moveToNext()) {
+            orderID=cur.getString(0).toString();
+            break;
+        }
+        cur.close();
+        return orderID;
+    }
+    public String getTotalAmount(String tableName)
+    {
+        String orderID="";
+        String query = "SELECT SUM(quantity*price)  as Total ,Tables.TableName";
+        query +=" FROM Orders,Tables,OrderDetail";
+        query +=" WHERE Orders.tableName=Tables.tableName";
+        query +=" AND Orders.OrderID=OrderDetail.OrderID";
+        query +=" AND Tables.TableName='"+tableName+"'";
+        query +=" GROUP BY Tables.TableName";
+        query +=" HAVING Orders.OrderPaid<(SELECT SUM(quantity*price) FROM OrderDetail)";
+        Cursor cur = database.rawQuery(query, null);
+        List<OrderBO> list = new ArrayList<OrderBO>();
+        for (cur.moveToFirst(); !cur.isAfterLast(); cur.moveToNext()) {
+            orderID=cur.getString(0).toString();
+            break;
+        }
+        cur.close();
+        return orderID;
+    }
+    public String getPaidAmount(String tableName)
+    {
+        String orderID="";
+        String query = "SELECT OrderPaid ";
+        query +=" FROM Orders,Tables,OrderDetail";
+        query +=" WHERE Orders.tableName=Tables.tableName";
+        query +=" AND Orders.OrderID=OrderDetail.OrderID";
+        query +=" AND Tables.TableName='"+tableName+"'";
+        query +=" GROUP BY 1";
+        query +=" HAVING Orders.OrderPaid<(SELECT SUM(quantity*price) FROM OrderDetail)";
+        Cursor cur = database.rawQuery(query, null);
+        List<OrderBO> list = new ArrayList<OrderBO>();
+        for (cur.moveToFirst(); !cur.isAfterLast(); cur.moveToNext()) {
+            orderID=cur.getString(0).toString();
+            break;
+        }
+        cur.close();
+        return orderID;
+    }
+    public long updateOrderPaid(int orderID,Float payment)
     {
         ContentValues cv = new ContentValues();
-        cv.put(ORDER_PAID,paid);
+        cv.put(ORDER_PAID,payment);
         return database.update(DATABASE_TABLE, cv, KEY_ROWID + "=?", new String[]{Integer.toString(orderID)});
     }
 

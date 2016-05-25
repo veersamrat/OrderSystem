@@ -2,12 +2,7 @@ package com.giao.ordersystem;
 
 import android.app.Activity;
 import android.content.Context;
-import android.widget.Spinner;
-import android.widget.SpinnerAdapter;
 import android.widget.Toast;
-
-import java.util.ArrayList;
-
 /**
  * Created by Long on 5/14/2016.
  */

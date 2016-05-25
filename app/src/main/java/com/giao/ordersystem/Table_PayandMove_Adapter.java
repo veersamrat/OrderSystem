@@ -97,6 +97,11 @@ public class Table_PayandMove_Adapter  extends BaseAdapter {
             public void onClick(View v) {
                 int index = (Integer) v.getTag();
                 TableBO table = data.get(index);
+                Intent intent= new Intent(context,Table_Pay.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                intent.putExtra("tableName", ((TableBO) data.get(position)).getTableName());
+                intent.putExtra("orderID",orderID);
+                context.startActivity(intent);
             }
         });
         return vi;

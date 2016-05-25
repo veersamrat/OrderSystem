@@ -60,7 +60,7 @@
                         android:layout_marginLeft="10dp"
                         android:layout_weight="85"/>
                 </TableRow>
-                <TableRow>
+                <TableRow android:paddingTop="10dp">
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -75,7 +75,8 @@
                         android:id="@+id/toTableSpinner"
                         android:layout_gravity="center_horizontal"
                         android:layout_marginLeft="10dp"
-                        android:layout_weight="85"/>
+                        android:layout_weight="85"
+                        android:background="#D3D3D3"/>
                 </TableRow>
             </TableLayout>
         </LinearLayout>
