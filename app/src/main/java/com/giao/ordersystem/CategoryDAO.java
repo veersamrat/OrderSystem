@@ -30,10 +30,10 @@ public class CategoryDAO{
     {
         databaseHelper.close();
     }
-    public long create(String tableName) throws SQLException
+    public long create(String categoryName) throws SQLException
     {
         ContentValues cv= new ContentValues();
-        cv.put(KEY_TableName, tableName);
+        cv.put(KEY_TableName, categoryName);
         return database.insert(DATABASE_TABLE,null ,cv);
     }
     public ArrayList<CategoryBO> list()

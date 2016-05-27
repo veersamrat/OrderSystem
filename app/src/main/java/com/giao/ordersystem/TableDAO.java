@@ -38,7 +38,7 @@ public class TableDAO{
     }
     public ArrayList<TableBO> list()
     {
-        String query="SELECT * FROM Tables";
+        String query="SELECT * FROM Tables ORDER BY TableName";
         Cursor cur=database.rawQuery(query,null);
         ArrayList<TableBO> list = new ArrayList<TableBO>();
         int iRow= cur.getColumnIndex(KEY_TableName);

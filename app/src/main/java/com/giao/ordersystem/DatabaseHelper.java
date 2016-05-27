@@ -1,5 +1,6 @@
 package com.giao.ordersystem;
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
@@ -79,6 +80,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.execSQL(CreateTABLE_ORDER);
         db.execSQL(CreateTABLE_MENU);
         db.execSQL(CreateTABLE_ORDERDETAIL);
+
+
+
     }
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
