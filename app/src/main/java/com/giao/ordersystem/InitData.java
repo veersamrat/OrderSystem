@@ -69,11 +69,22 @@ public class InitData extends Activity{
             dishDAO.create(categoryName[i],dishName[i],dishPrice[i],dishDecription[i],"0");
             dishDAO.close();
         }
-        String []categoryName1={};
-        String []dishName1={};
-        String []dishPrice1={};
-        String []dishDecription1={};
-
+        String []categoryName1={"Soup","Soup","Soup","Soup","Soup","Soup","Soup","Soup"};
+        String []dishName1={"Sweet & Sour Prawn Soup","Sweet & Sour Chicken Soup", "Chicken & Sweet Corn Soup","Crab & Asparagus Soup"
+                ,"Rice Noodle Soup – Hu Tieu My Tho","Combination Steamboat ","Seafood Steamboat ", "Vegetarian Steamboat"};
+        String []dishPrice1={"9.0","9.0","9.0","9.0","9.0","36.0","36.0","36.0"};
+        String []dishDecription1={"A specialty of Southern Vietnam. Soured with tamarind, fresh tomato, and pineapple; lifted by a wetland herb (unique to Vietnamese food), and finished with okra for colour and texture",
+        "A specialty of Southern Vietnam. Soured with tamarind, fresh tomato, and pineapple; lifted by a wetland herb (unique to Vietnamese food), and finished with okra for colour and texture",
+        "Popular traditional soup",
+        "Succulent chunks of crab meat in a tasty asparagus soup",
+        "From My Tho Province, this special rice noodle soup is topped with prawns, calamari, chicken and pork.",
+        "One of the most popular dishes in Vietnamese dining. Cooked in a delicious broth at your table with fresh meats, seafood and vegetables. It is shared by four people as an entrée",
+        "One of the most popular dishes in Vietnamese dining. Cooked in a delicious broth at your table with fresh seafood and vegetables. It is shared by four people as an entrée",
+        "One of the most popular dishes in Vietnamese dining. Cooked in a delicious broth at your table with fresh tofu and vegetables. It is shared by four people as an entrée"};
+        String []categoryName2={};
+        String []dishName2={};
+        String []dishPrice2={};
+        String []dishDecription2={};
     }
 
 }
