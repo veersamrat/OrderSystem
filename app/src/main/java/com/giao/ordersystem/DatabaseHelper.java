@@ -3,6 +3,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.preference.PreferenceManager;
 import android.util.Log;
 
 /**
@@ -41,8 +42,13 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public static final String DishDescription="DishDescription";
     public static final String DishAvailability="DishAvailability";
     private static final int DATABASE_VERSION=5;
+
+    private static Context context;
     public DatabaseHelper(Context context)
-    {super(context,DATABASE_NAME,null,DATABASE_VERSION);}
+    {
+        super(context,DATABASE_NAME,null,DATABASE_VERSION);
+        this.context=context;
+    }
     @Override
     public void onCreate(SQLiteDatabase db) {
         // TODO Auto-generated method stub
@@ -95,4 +101,5 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.execSQL("DROP TABLE IF EXISTs " + TABLE_ORDERDETAIL);
         onCreate(db);
     }
+
 }

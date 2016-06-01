@@ -79,8 +79,9 @@ public class Order_Event extends Activity {
                 }
                 orderDetailsDAO.close();
             }
+            //If all good - Print it
+            
         }
-
         catch (Exception e)
         {
             Toast.makeText(context, "Failed to save and send order", Toast.LENGTH_LONG).show();

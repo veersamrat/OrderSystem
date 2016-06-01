@@ -75,7 +75,11 @@ public class OrderDetailsDAO {
         query+=" AND orders.orderid=orderdetail.orderid";
         query+=" AND orders.tablename='"+tableName+"'";
         query+=" GROUP BY orderDetailID,menu.dishID,quantity,dishname,subtotal,note";
-        query+=" HAVING orderpaid<SUM(subtotal)";
+        query+=" HAVING orderpaid<(SELECT ROUND(SUM(quantity*price),2) FROM orderdetail,menu,tables,orders";
+        query+=" WHERE orderdetail.dishid=menu.dishid";
+        query+=" AND orders.tablename=tables.tablename";
+        query+=" AND orders.orderid=orderdetail.orderid";
+        query+=" AND orders.tablename='"+tableName+"')";
         Cursor cur=database.rawQuery(query,null);
         ArrayList<Order_View> list = new ArrayList<Order_View>();
         int iRow= cur.getColumnIndex(KEY_OrderDetailID);

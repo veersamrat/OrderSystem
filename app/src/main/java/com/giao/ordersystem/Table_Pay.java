@@ -76,6 +76,8 @@ public class Table_Pay extends Activity {
         tableNameTextView.setText(tableName.toString());
         totalTextView.setText(Float.toString(total));
         paidTextView.setText(Float.toString(paid));
-        remainingTextView.setText(new DecimalFormat(".##").format(Float.toString(remaining)));
+        try{String temp=new DecimalFormat(".##").format(remaining);
+            remainingTextView.setText(temp);}
+        catch(Exception e){remainingTextView.setText((Float.toString(remaining)));}
     }
 }

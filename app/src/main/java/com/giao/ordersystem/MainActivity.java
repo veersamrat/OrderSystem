@@ -1,7 +1,9 @@
 package com.giao.ordersystem;
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.view.View;
 import android.R.*;
 import android.widget.Button;
@@ -67,8 +69,21 @@ public class MainActivity extends Activity{
     }
     protected void Init_Database()
     {
-        DatabaseHelper dbHelper= new DatabaseHelper(this.getApplicationContext());
+        //Create database
+        DatabaseHelper dbHelper= new DatabaseHelper(this.getBaseContext());
         dbHelper.getReadableDatabase();
+        //Put data to database when install
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this.getBaseContext());
+        if (!prefs.getBoolean("firstTime", false)) {
+            // <---- run your one time code here
+            InitData initData = new InitData(this.getBaseContext());
+            initData.InitDatabase();
+            //    InitDatabase(this.context);
+            // mark first time has runned.
+            SharedPreferences.Editor editor = prefs.edit();
+            editor.putBoolean("firstTime", true);
+            editor.commit();
+        }
     }
 
 
