@@ -52,7 +52,7 @@ public class Order_Event extends Activity {
         finish();
 
     }
-    public void saveButton_OnClick(ArrayList<Order_View> orginalOrder_viewArrayList,ArrayList<Order_View> order_viewArrayList,int orderID)
+    public void saveButton_OnClick(String tableName,ArrayList<Order_View> orginalOrder_viewArrayList,ArrayList<Order_View> order_viewArrayList,int orderID)
     {
         try {
             //remove all orderdetails where contains OrderID
@@ -80,7 +80,14 @@ public class Order_Event extends Activity {
                 orderDetailsDAO.close();
             }
             //If all good - Print it
-            
+            //get order information
+            orderDAO.open();
+            OrderBO orderBO=orderDAO.itemOrder(Integer.toString(orderID));
+            orderDAO.close();
+            //and print it out
+            PrinterSetting_Event printer_event= new PrinterSetting_Event();
+            printer_event.sendData(tableName,order_viewArrayList,orderBO);
+
         }
         catch (Exception e)
         {

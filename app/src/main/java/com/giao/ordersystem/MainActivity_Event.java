@@ -47,7 +47,12 @@ public class MainActivity_Event extends Activity {
         orderIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         context.startActivity(orderIntent);
     }
-
+    public void printerSettingButton_Click()
+    {
+        Intent orderIntent = new Intent(context,PrinterSetting.class);
+        orderIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        context.startActivity(orderIntent);
+    }
     public void exitButton_Click() {
         android.os.Process.killProcess(Process.myPid());
         System.exit(1);

@@ -15,6 +15,7 @@ public class MainActivity extends Activity{
     private Button orderButton;
     private Button tableButton;
     private Button settingButton;
+    private Button printerSettingButton;
     private Button exitButton;
     private MainActivity_Event event;
     @Override
@@ -51,11 +52,20 @@ public class MainActivity extends Activity{
                 event.tableButton_Click();
             }
         });
+        //Setting Button
         settingButton=(Button)findViewById(R.id.settingButton);
         settingButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 event.settingButton_Click();
+            }
+        });
+        //Printer Setting Button
+        printerSettingButton=(Button)findViewById(R.id.printerSettingButton);
+        printerSettingButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                event.printerSettingButton_Click();
             }
         });
         //Exit Button

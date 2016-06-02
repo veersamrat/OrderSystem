@@ -136,7 +136,7 @@ public class Order extends Activity{
                 {
                     orderDetailCollection.add((Order_View) orderList.getItem(i));
                 }
-                event.saveButton_OnClick(OriginorderDetailCollection,orderDetailCollection,orderID);
+                event.saveButton_OnClick(selectedTable,OriginorderDetailCollection,orderDetailCollection,orderID);
                 CaculateTotal();
             }
         });
